@@ -66,9 +66,8 @@ class BaseStage extends FlxBasic
 	  var pathSpamIco = Paths.image("images/icon");
 	  SpriteIcoSpam = new FlxSprite(pathSpamIco);
 	  
-	  if(pathSpamIco != null || pathSpamIco != ""){
-	    
-	    SpriteIcoSpam.scrollfactor.set();
+	  if(pathSpamIco != null){
+	    SpriteIcoSpam.scrollFactor.set();
 	    add(SpriteIcoSpam);
 	    
 	    
