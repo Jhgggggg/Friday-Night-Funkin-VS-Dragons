@@ -50,7 +50,7 @@ class ChartingState extends MusicBeatState
 		'Hey!',
 		'Hurt Note',
 		'GF Sing',
-		'No Animation'
+		'No Animation',
 		'Kill Note'
 	];
 	public var ignoreWarnings = false;
