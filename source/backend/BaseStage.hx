@@ -42,6 +42,8 @@ class BaseStage extends FlxBasic
 
 	public var defaultCamZoom(get, set):Float;
 	public var camFollow(get, never):FlxObject;
+	
+	public var SpriteIcoSpam: FlxSprite;
 
 	public function new()
 	{
@@ -59,7 +61,20 @@ class BaseStage extends FlxBasic
 	}
 
 	//main callbacks
-	public function create() {}
+	public function create() {
+	  
+	  var pathSpamIco = Paths.image("images/icon");
+	  SpriteIcoSpam = new FlxSprite(pathSpamIco);
+	  
+	  if(pathSpamIco != null || pathSpamIco != ""){
+	    
+	    SpriteIcoSpam.scrollfactor.set();
+	    add(SpriteIcoSpam);
+	    
+	    
+	  }
+	  
+	}
 	public function createPost() {}
 	//public function update(elapsed:Float) {}
 	public function countdownTick(count:Countdown, num:Int) {}
