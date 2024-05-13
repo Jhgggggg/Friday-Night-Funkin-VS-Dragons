@@ -42,7 +42,7 @@ typedef AnimArray = {
 
 class Character extends FlxSprite
 
-public var healthCol:Array<Int>;
+
 
 {
 	/**
@@ -144,7 +144,13 @@ public var healthCol:Array<Int>;
 		dance();
 	}
 	
-	
+	public function setHealthColor(color: Array<Int>)
+	{
+	  
+	  healthbar_colors = color;
+	  
+	  
+	}
 
 	public function loadCharacterFile(json:Dynamic)
 	{
