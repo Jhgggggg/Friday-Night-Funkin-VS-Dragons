@@ -207,7 +207,9 @@ class Note extends FlxSprite
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false, ?createdFrom:Dynamic = null)
 	{
 	  
+	  var speed = Math.random() * 0.7 + 1.2;
 	  
+	  multSpeed = speed;
 	  
 		super();
 
