@@ -3126,17 +3126,15 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
+	    defaultHealthColorArray = dad.healthColorArray;
 	    
-	    
-	    
+	    dad.healthColorArray = [255, 0, 0];
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
-	      
-	      
-	      
+	      dad.healthColorArray = defaultHealthColorArray;
 	    });
 	    
 	  }
@@ -3161,7 +3159,8 @@ class PlayState extends MusicBeatState
 				switch(note.noteType) {
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animOffsets.exists('hurt')) {
-				
+							boyfriend.playAnim('hurt', true);
+							boyfriend.specialAnim = true;
 						}
 				}
 			}
@@ -3290,11 +3289,13 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		
-		if(curSong == "ukiyo"){
+		switch(curStage){
 		  
+		  case 'cgstage1':
 		  
-		  }
+		    
 		  
+		
 		}
 
 		if(curStep == lastStepHit) {
@@ -3676,7 +3677,7 @@ class PlayState extends MusicBeatState
 					case 'ur_bad':
 						unlock = (ratingPercent < 0.2 && !practiceMode);
 
-					case 'urgood':
+					case 'ur_good':
 						unlock = (ratingPercent >= 1 && !usedPractice);
 
 					case 'oversinging':
