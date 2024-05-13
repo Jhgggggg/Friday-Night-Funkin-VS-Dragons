@@ -3132,11 +3132,7 @@ class PlayState extends MusicBeatState
 	    
 	    soundNoteKill.play();
 	    
-	    for(i in 0.. notes.length){
-	      
-	      notes.members[i].set_noteType("Hurt Note");
-	      
-	    }
+	    
 	    
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
@@ -3145,11 +3141,7 @@ class PlayState extends MusicBeatState
 	      boyfriend.stunned = false;
 	      
 	      
-	      for(i in 0.. notes.length){
-	        
-	        notes.members[i].set_noteType("");
-	        
-	      }
+	      
 	    });
 	    
 	  }
