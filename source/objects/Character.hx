@@ -18,6 +18,8 @@ typedef CharacterFile = {
 	var scale:Float;
 	var sing_duration:Float;
 	var healthicon:String;
+	
+	
 
 	var position:Array<Float>;
 	var camera_position:Array<Float>;
@@ -39,6 +41,9 @@ typedef AnimArray = {
 }
 
 class Character extends FlxSprite
+
+public var healthCol:Array<Int>;
+
 {
 	/**
 	 * In case a character is missing, it will use this on its place
@@ -85,7 +90,7 @@ class Character extends FlxSprite
 	{
 		super(x, y);
 
-		
+		healthCol = healthbar_colors;
 
 		animOffsets = new Map<String, Array<Dynamic>>();
 		this.isPlayer = isPlayer;
@@ -138,6 +143,8 @@ class Character extends FlxSprite
 		recalculateDanceIdle();
 		dance();
 	}
+	
+	
 
 	public function loadCharacterFile(json:Dynamic)
 	{

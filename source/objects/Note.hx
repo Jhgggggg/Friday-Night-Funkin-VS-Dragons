@@ -108,7 +108,7 @@ class Note extends FlxSprite
 	public var copyAngle:Bool = true;
 	public var copyAlpha:Bool = true;
 
-	public var hitHealth:Float = 0.023;
+	public var hitHealth:Float = 0.010;
 	public var missHealth:Float = 0.0475;
 	public var rating:String = 'unknown';
 	public var ratingMod:Float = 0; //9 = unknown, 0.25 = shit, 0.5 = bad, 0.75 = good, 1 = sick
@@ -119,13 +119,13 @@ class Note extends FlxSprite
 	public var noAnimation:Bool = false;
 	public var noMissAnimation:Bool = false;
 	public var hitCausesMiss:Bool = false;
-	public var distance:Float = 2000; //plan on doing scroll directions soon -bb
+	public var distance:Float = 1300; //plan on doing scroll directions soon -bb
 
 	public var hitsoundDisabled:Bool = false;
 	public var hitsoundChartEditor:Bool = true;
 	public var hitsound:String = 'hitsound';
 
-	private function set_multSpeed(value:Float):Float {
+	public function set_multSpeed(value:Float):Float {
 		resizeByRatio(value / multSpeed);
 		multSpeed = value;
 		//trace('fuck cock');
@@ -161,7 +161,7 @@ class Note extends FlxSprite
 		}
 	}
 
-	private function set_noteType(value:String):String {
+	public function set_noteType(value:String):String {
 		noteSplashData.texture = PlayState.SONG != null ? PlayState.SONG.splashSkin : 'noteSplashes';
 		defaultRGB();
 
@@ -207,9 +207,10 @@ class Note extends FlxSprite
 	public function new(strumTime:Float, noteData:Int, ?prevNote:Note, ?sustainNote:Bool = false, ?inEditor:Bool = false, ?createdFrom:Dynamic = null)
 	{
 	  
-	  var speed = Math.random() * 0.7 + 1.2;
 	  
-	  multSpeed = speed;
+	  
+	  var alphaValur = Math.random() * 0.45 + 1;
+	  multAlpha = alphaValur;
 	  
 		super();
 

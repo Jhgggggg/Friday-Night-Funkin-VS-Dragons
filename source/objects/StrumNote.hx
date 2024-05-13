@@ -10,7 +10,7 @@ class StrumNote extends FlxSprite
 	public var resetAnim:Float = 0;
 	private var noteData:Int = 0;
 	// Nao esquecer , que isso aqui foi mudado
-	public var direction:Float = 180;//plan on doing scroll directions soon -bb
+	public var direction:Float = 80;//plan on doing scroll directions soon -bb
 	public var downScroll:Bool = false;//plan on doing scroll directions soon -bb
 	public var sustainReduce:Bool = true;
 	private var player:Int;

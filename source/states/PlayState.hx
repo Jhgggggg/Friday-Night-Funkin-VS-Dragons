@@ -282,6 +282,8 @@ class PlayState extends MusicBeatState
 	{
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
+		
+		
 
 		startCallback = startCountdown;
 		endCallback = endSong;
@@ -3126,15 +3128,28 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
-	    defaultHealthColorArray = dad.healthColorArray;
+	    var soundNoteKill = Paths.sound("kill");
 	    
-	    dad.healthColorArray = [255, 0, 0];
+	    soundNoteKill.play();
+	    
+	    for(i in 0.. notes.length){
+	      
+	      notes.members[i].set_noteType("Hurt Note");
+	      
+	    }
+	    
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
-	      dad.healthColorArray = defaultHealthColorArray;
+	      
+	      
+	      for(i in 0.. notes.length){
+	        
+	        notes.members[i].set_noteType("");
+	        
+	      }
 	    });
 	    
 	  }
@@ -3289,13 +3304,20 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		
-		switch(curStage){
+		if(curSong == "ukiyo"){
 		  
-		  case 'cgstage1':
-		  
+		  switch(curStep){
 		    
+		    case 30: for(i in 0..notes.length){
+		      
+		      
+		      
+		    }
+		    
+		  }
 		  
-		
+		  }
+		  
 		}
 
 		if(curStep == lastStepHit) {
@@ -3319,8 +3341,8 @@ class PlayState extends MusicBeatState
 		if (generatedMusic)
 			notes.sort(FlxSort.byY, ClientPrefs.data.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 
-		iconP1.scale.set(1.2, 1.2);
-		iconP2.scale.set(1.2, 1.2);
+		iconP1.scale.set(1.4, 1.4);
+		iconP2.scale.set(1.4, 1.4);
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
@@ -3677,7 +3699,7 @@ class PlayState extends MusicBeatState
 					case 'ur_bad':
 						unlock = (ratingPercent < 0.2 && !practiceMode);
 
-					case 'ur_good':
+					case 'urgood':
 						unlock = (ratingPercent >= 1 && !usedPractice);
 
 					case 'oversinging':

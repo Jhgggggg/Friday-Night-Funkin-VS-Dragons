@@ -49,7 +49,7 @@ import states.TitleState;
 	public var ghostTapping:Bool = false;
 	public var timeBarType:String = 'Song Name';
 	public var scoreZoom:Bool = true;
-	public var noReset:Bool = false;
+	public var noReset:Bool = true;
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
