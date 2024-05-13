@@ -401,7 +401,7 @@ class PlayState extends MusicBeatState
 			case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
 			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
-			case 'cgstage' || 'cgstage1' || 'cgstage2' || 'cgstageAll':
+			case 'cgstage1':
 			
 		}
 		
@@ -1953,7 +1953,7 @@ class PlayState extends MusicBeatState
 							if(daNote.mustPress)
 							{
 								if(cpuControlled && !daNote.blockHit && daNote.canBeHit && (daNote.isSustainNote || daNote.strumTime <= Conductor.songPosition))
-									goodNoteHit(daNote);
+								goodNoteHit(daNote);
 							}
 							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
 								opponentNoteHit(daNote);
@@ -3131,7 +3131,7 @@ class PlayState extends MusicBeatState
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
-	    delayTimer.start(5, 1, (_) -> {
+	    delayTimer.start(5, 1, (onComplete) -> {
 	      boyfriend.stunned = false;
 	      dad.healthColorArray = defaultHealthColorArray;
 	    });
@@ -3297,7 +3297,7 @@ class PlayState extends MusicBeatState
 		
 		}
 
-		if(cur == lastStepHit) {
+		if(curStep == lastStepHit) {
 			return;
 		}
 
