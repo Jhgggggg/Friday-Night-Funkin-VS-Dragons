@@ -3296,11 +3296,7 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		
-		if(curSong == "ukiyo"){
-		  
-		  
-		    
-		  }
+		
 		  
 		  
 		  
@@ -3314,7 +3310,7 @@ lastStepHit = curStep; setOnScripts('curStep', curStep); callOnScripts('onStepHi
 		
 	}
 	
-}
+
 
 		
 	
