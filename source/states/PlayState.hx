@@ -399,6 +399,27 @@ class PlayState extends MusicBeatState
 			case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
 			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
+			case 'cgstage': cassetleStage();
+		}
+		
+		// De olho nisso hein , pra não quebrar cabeca depois
+		
+		private function cassetleStage() {
+		  
+		  if(curSong == "ukiyo"){
+		  
+		  for(i in 0.. notes.length){
+		    
+		    var noteCur: Note = notes.members[i];
+		    
+		    var randomSpeed = Math.random() * 0.7 + 1.2;
+		    
+		    noteCur.multSpeed = randomSpeed;
+		    
+		  }
+		  
+		  }
+		  
 		}
 
 		if(isPixelStage) {

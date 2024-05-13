@@ -1,0 +1,10 @@
+{
+	"idle_anim": "cassettegirl idle",
+	"image": "Menu_cassettegirl",
+	"position": [
+		160,
+		180
+	],
+	"scale": 0.55,
+	"confirm_anim": "M Dad Idle"
+}
