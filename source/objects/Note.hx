@@ -1,6 +1,5 @@
 package objects;
 
-import backend.animation.PsychAnimationController;
 import backend.NoteTypesConfig;
 
 import shaders.RGBPalette;
@@ -214,7 +213,7 @@ class Note extends FlxSprite
 	  
 		super();
 
-		animation = new PsychAnimationController(this);
+		
 
 		antialiasing = ClientPrefs.data.antialiasing;
 		if(createdFrom == null) createdFrom = PlayState.instance;
