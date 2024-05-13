@@ -17,7 +17,7 @@ import states.TitleState;
         public var hitboxType:String = "Gradient";
         // end of Mobile and Mobile Controls Releated
 	public var popUpRating:Bool = true;
-	public var downScroll:Bool = true;
+	public var downScroll:Bool = false;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
 	public var showFPS:Bool = true;
@@ -26,7 +26,7 @@ import states.TitleState;
 	public var antialiasing:Bool = true;
 	public var noteSkin:String = 'Default';
 	public var splashSkin:String = 'Psych';
-	public var splashAlpha:Float = 0.6;
+	public var splashAlpha:Float = 1;
 	public var lowQuality:Bool = false;
 	public var shaders:Bool = false;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic

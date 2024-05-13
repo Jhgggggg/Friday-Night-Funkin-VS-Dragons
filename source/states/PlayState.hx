@@ -98,6 +98,8 @@ class PlayState extends MusicBeatState
 
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
+	
+	public var defaultHealthColorArray: Array<Int>;
 
 	public var boyfriendMap:Map<String, Character> = new Map<String, Character>();
 	public var dadMap:Map<String, Character> = new Map<String, Character>();
@@ -399,6 +401,7 @@ class PlayState extends MusicBeatState
 			case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
 			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
+			case 'cgstage' || 'cgstage1' || 'cgstage2' || 'cgstageAll':
 			
 		}
 		
@@ -582,7 +585,7 @@ class PlayState extends MusicBeatState
 		updateScore(false);
 		uiGroup.add(scoreTxt);
 
-		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, Language.getPhrase("Botplay").toUpperCase(), 32);
+		botplayTxt = new FlxText(400, timeBar.y + 55, FlxG.width - 800, Language.getPhrase("IA").toUpperCase(), 32);
 		botplayTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		botplayTxt.scrollFactor.set();
 		botplayTxt.borderSize = 1.25;
@@ -3116,6 +3119,25 @@ class PlayState extends MusicBeatState
 
 	public function goodNoteHit(note:Note):Void
 	{
+	  
+	  switch(note.noteType){
+	    
+	    case "Kill Note": 
+	    
+	    boyfriend.stunned = true;
+	    defaultHealthColorArray = dad.healthColorArray;
+	    
+	    dad.healthColorArray = [255, 0, 0]
+	    
+	    var delayTimer: FlxTimer = new FlxTimer();
+	    
+	    delayTimer.start(5, 1, (_) -> {
+	      boyfriend.stunned = false;
+	      dad.healthColorArray = defaultHealthColorArray;
+	    });
+	    
+	  }
+	  
 		if(note.wasGoodHit) return;
 		if(cpuControlled && note.ignoreNote) return;
 
@@ -3261,11 +3283,21 @@ class PlayState extends MusicBeatState
 	}
 
 	var lastStepHit:Int = -1;
+	// Porfavor - Nao esquecer dessa parte , porque se esquecer ja era
 	override function stepHit()
 	{
 		super.stepHit();
+		
+		switch(curStage){
+		  
+		  case 'cgstage1':
+		  
+		    
+		  
+		
+		}
 
-		if(curStep == lastStepHit) {
+		if(cur == lastStepHit) {
 			return;
 		}
 
