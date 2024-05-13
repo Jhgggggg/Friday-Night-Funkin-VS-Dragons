@@ -3127,7 +3127,7 @@ class PlayState extends MusicBeatState
 	    boyfriend.stunned = true;
 	    defaultHealthColorArray = dad.healthColorArray;
 	    
-	    dad.healthColorArray = [255, 0, 0]
+	    dad.healthColorArray = [255, 0, 0];
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
