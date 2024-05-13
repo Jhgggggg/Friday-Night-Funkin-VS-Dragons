@@ -75,8 +75,7 @@ class ChartingState extends MusicBeatState
 		['Change Character', "Value 1: Character to change (Dad, BF, GF)\nValue 2: New character's name"],
 		['Change Scroll Speed', "Value 1: Scroll Speed Multiplier (1 is default)\nValue 2: Time it takes to change fully in seconds."],
 		['Set Property', "Value 1: Variable name\nValue 2: New value"],
-		['Play Sound', "Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"],
-		['Dodge', "Dodge mechanic of mod"]
+		['Play Sound', "Value 1: Sound file name\nValue 2: Volume (Default: 1), ranges from 0 to 1"]
 	];
 
 	var _file:FileReference;
@@ -98,7 +97,7 @@ class ChartingState extends MusicBeatState
 	var strumLine:FlxSprite;
 	var quant:AttachedSprite;
 	var strumLineNotes:FlxTypedGroup<StrumNote>;
-	var curSong:String = 'Tutorial';
+	var curSong:String = 'Test';
 	var amountSteps:Int = 0;
 	var bullshitUI:FlxGroup;
 
@@ -156,7 +155,7 @@ class ChartingState extends MusicBeatState
 		16,
 		24
 	];
-	var curZoom:Float = 1.20;
+	var curZoom:Int = 2;
 
 	private var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
 	private var blockPressWhileTypingOnStepper:Array<FlxUINumericStepper> = [];
@@ -199,7 +198,7 @@ class ChartingState extends MusicBeatState
 		{
 			Difficulty.resetList();
 			_song = {
-				song: 'Tutorial',
+				song: 'Test',
 				notes: [],
 				events: [],
 				bpm: 150.0,
@@ -226,7 +225,7 @@ class ChartingState extends MusicBeatState
 		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[0]));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.scrollFactor.set();
-		bg.color = 0xFF222280;
+		bg.color = 0xFF222222;
 		add(bg);
 
 		gridLayer = new FlxTypedGroup<FlxSprite>();
@@ -316,7 +315,6 @@ class ChartingState extends MusicBeatState
 			{name: "Events", label: 'Events'},
 			{name: "Charting", label: 'Charting'},
 			{name: "Data", label: 'Data'},
-			{name: "Stage", label: "Stage"},
 		];
 
 		UI_box = new FlxUITabMenu(null, tabs, true);

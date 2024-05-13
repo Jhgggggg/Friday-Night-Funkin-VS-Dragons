@@ -3132,7 +3132,11 @@ class PlayState extends MusicBeatState
 	    
 	    soundNoteKill.play();
 	    
-	    
+	    for(i in 0.. notes.length){
+	      
+	      notes.members[i].set_noteType("Hurt Note");
+	      
+	    }
 	    
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
@@ -3141,7 +3145,11 @@ class PlayState extends MusicBeatState
 	      boyfriend.stunned = false;
 	      
 	      
-	      
+	      for(i in 0.. notes.length){
+	        
+	        notes.members[i].set_noteType("");
+	        
+	      }
 	    });
 	    
 	  }
@@ -3214,7 +3222,7 @@ class PlayState extends MusicBeatState
 			var spr = playerStrums.members[note.noteData];
 			if(spr != null) spr.playAnim('confirm', true);
 		}
-		else strumPlayAnim(false, Std.int(Math.abs(note.noteData)), ConductorstepCrochet * 1.25 / 1000 / playbackRate);
+		else strumPlayAnim(false, Std.int(Math.abs(note.noteData)), Conductor.stepCrochet * 1.25 / 1000 / playbackRate);
 		vocals.volume = 1;
 
 		if (!note.isSustainNote)
@@ -3296,24 +3304,21 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		
-		
+		if(curSong == "ukiyo"){
 		  
 		  
+		  }
 		  
-		
+		}
 
 		if(curStep == lastStepHit) {
 			return;
 		}
-		
-lastStepHit = curStep; setOnScripts('curStep', curStep); callOnScripts('onStepHit');
-		
+
+		lastStepHit = curStep;
+		setOnScripts('curStep', curStep);
+		callOnScripts('onStepHit');
 	}
-	
-
-
-		
-	
 
 	var lastBeatHit:Int = -1;
 
@@ -3327,8 +3332,8 @@ lastStepHit = curStep; setOnScripts('curStep', curStep); callOnScripts('onStepHi
 		if (generatedMusic)
 			notes.sort(FlxSort.byY, ClientPrefs.data.downScroll ? FlxSort.ASCENDING : FlxSort.DESCENDING);
 
-		iconP1.scale.set(1.4, 1.4);
-		iconP2.scale.set(1.4, 1.4);
+		iconP1.scale.set(1.2, 1.2);
+		iconP2.scale.set(1.2, 1.2);
 
 		iconP1.updateHitbox();
 		iconP2.updateHitbox();
