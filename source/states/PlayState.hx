@@ -3310,14 +3310,14 @@ class PlayState extends MusicBeatState
 			return;
 		}
 		
+lastStepHit = curStep; setOnScripts('curStep', curStep); callOnScripts('onStepHit');
+		
 	}
 	
 }
 
-		lastStepHit = curStep;
-		setOnScripts('curStep', curStep);
-		callOnScripts('onStepHit');
-	}
+		
+	
 
 	var lastBeatHit:Int = -1;
 
