@@ -3131,7 +3131,7 @@ class PlayState extends MusicBeatState
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
-	    delayTimer.start(5, 1, (onComplete) -> {
+	    delayTimer.start(5, () -> {
 	      boyfriend.stunned = false;
 	      dad.healthColorArray = defaultHealthColorArray;
 	    });
