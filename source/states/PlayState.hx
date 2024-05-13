@@ -3214,7 +3214,7 @@ class PlayState extends MusicBeatState
 			var spr = playerStrums.members[note.noteData];
 			if(spr != null) spr.playAnim('confirm', true);
 		}
-		else strumPlayAnim(false, Std.int(Math.abs(note.noteData)), Conductor.stepCrochet * 1.25 / 1000 / playbackRate);
+		else strumPlayAnim(false, Std.int(Math.abs(note.noteData)), ConductorstepCrochet * 1.25 / 1000 / playbackRate);
 		vocals.volume = 1;
 
 		if (!note.isSustainNote)
@@ -3298,23 +3298,21 @@ class PlayState extends MusicBeatState
 		
 		if(curSong == "ukiyo"){
 		  
-		  switch(curStep){
-		    
-		    case 30: for(i in 0..notes.length){
-		      
-		      
-		      
-		    }
+		  
 		    
 		  }
 		  
-		  }
 		  
-		}
+		  
+		
 
 		if(curStep == lastStepHit) {
 			return;
 		}
+		
+	}
+	
+}
 
 		lastStepHit = curStep;
 		setOnScripts('curStep', curStep);
