@@ -282,8 +282,6 @@ class PlayState extends MusicBeatState
 	{
 		//trace('Playback Rate: ' + playbackRate);
 		Paths.clearStoredMemory();
-		
-		
 
 		startCallback = startCountdown;
 		endCallback = endSong;
@@ -3128,15 +3126,8 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
-	    var soundNoteKill = Paths.sound("kill");
 	    
-	    soundNoteKill.play();
 	    
-	    for(i in 0.. notes.length){
-	      
-	      notes.members[i].set_noteType("Hurt Note");
-	      
-	    }
 	    
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
@@ -3145,11 +3136,7 @@ class PlayState extends MusicBeatState
 	      boyfriend.stunned = false;
 	      
 	      
-	      for(i in 0.. notes.length){
-	        
-	        notes.members[i].set_noteType("");
-	        
-	      }
+	      
 	    });
 	    
 	  }
@@ -3174,8 +3161,7 @@ class PlayState extends MusicBeatState
 				switch(note.noteType) {
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animOffsets.exists('hurt')) {
-							boyfriend.playAnim('hurt', true);
-							boyfriend.specialAnim = true;
+				
 						}
 				}
 			}
