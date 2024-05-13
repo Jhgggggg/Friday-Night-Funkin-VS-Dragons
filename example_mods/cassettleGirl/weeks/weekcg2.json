@@ -35,5 +35,6 @@
 		]
 	],
 	"hideStoryMode": true,
-	"weekName": "Custom Week"
+	"weekName": "Custom Week",
+	"difficulties": "hard, insane"
 }
