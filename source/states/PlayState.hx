@@ -18,6 +18,7 @@ import flixel.animation.FlxAnimationController;
 import openfl.utils.Assets;
 import openfl.events.KeyboardEvent;
 import haxe.Json;
+import flixel.util.FlxTimer;
 
 import cutscenes.CutsceneHandler;
 import cutscenes.DialogueBoxPsych;
