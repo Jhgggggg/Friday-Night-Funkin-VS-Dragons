@@ -90,7 +90,7 @@ class Character extends FlxSprite
 	{
 		super(x, y);
 
-		healthCol = healthbar_colors;
+		
 
 		animOffsets = new Map<String, Array<Dynamic>>();
 		this.isPlayer = isPlayer;
@@ -147,7 +147,7 @@ class Character extends FlxSprite
 	public function setHealthColor(color: Array<Int>)
 	{
 	  
-	  healthbar_colors = color;
+	  
 	  
 	  
 	}
