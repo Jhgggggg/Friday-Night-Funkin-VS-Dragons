@@ -3314,12 +3314,7 @@ class PlayState extends MusicBeatState
 	{
 		super.stepHit();
 		
-		switch(curStep){
-		  
-		  case 5: ClientPrefs.keyBinds.set("note_up","W"); ClientPrefs.keyBinds.set("note_left","A"); ClientPrefs.keyBinds.set("note_down","S"); ClientPrefs.keyBinds.set("note_right","D");
-		  
-		  
-		}
+		
 		
 		switch(curStage){
 		  
