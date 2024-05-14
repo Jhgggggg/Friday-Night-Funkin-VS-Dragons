@@ -3162,7 +3162,7 @@ class PlayState extends MusicBeatState
 	    
 	  }
 	  
-	}
+	
 	  
 		if(note.wasGoodHit) return;
 		if(cpuControlled && note.ignoreNote) return;
