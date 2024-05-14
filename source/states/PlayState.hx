@@ -3138,7 +3138,7 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
-      notes.forEachAlive(daNote: Note){
+      notes.forEachAlive(function (n:Note) {
 	      
 	      if(daNote.mustPress == false){
 	        if(daNote.noteType != "Kill Note"){
@@ -3148,7 +3148,7 @@ class PlayState extends MusicBeatState
 	        }
 	      }
 	      
-	    }
+	    });
 	    defaultHealthColorArray = dad.healthColorArray;
 	    
 	    dad.healthColorArray = [255, 0, 0];
