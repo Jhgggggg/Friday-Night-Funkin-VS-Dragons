@@ -84,6 +84,8 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X = 48.5;
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
+  public var missLimit: Int = 5;
+  
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
@@ -2992,10 +2994,10 @@ class PlayState extends MusicBeatState
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
 		
-		if(songMisses < ClientPrefs.missLimit){
+		if(songMisses < missLimit){
 		  
 		}else {
-		  healthBar.set_health(0);
+		  healthBar.health = 0;
 		}
 		
 		notes.forEachAlive(function(note:Note) {
@@ -3103,10 +3105,9 @@ class PlayState extends MusicBeatState
 	  
 	  opponentStrums.members[note.noteData].playAnim("static",true);
 	  
-	  if(ClientPrefs.healthGain){
+	 
 	    if(healthBar.health > 1.3){
-	    healthBar.set_health(healthBar.health - 0.4);
-	    }
+	    healthBar.health = healthBar.health - 0.4;
 	  }
 	  
 	  
