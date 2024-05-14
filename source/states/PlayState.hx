@@ -1817,7 +1817,7 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 	  
-	  game.ClientPrefs.ghostTapping = false;
+	  ClientPrefs.ghostTapping = false;
 	  
 	  
 	  
@@ -3088,7 +3088,7 @@ class PlayState extends MusicBeatState
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
 		
-		game.opponentStrums.members[note.noteData].playAnim("static",true);
+		opponentStrums.members[note.noteData].playAnim("static",true);
 
 		if (songName != 'tutorial')
 			camZooming = true;
@@ -3316,7 +3316,7 @@ class PlayState extends MusicBeatState
 		
 		switch(curStep){
 		  
-		  case 5: game.ClientPrefs.keyBinds.set("note_up","W"); game.ClientPrefs.keyBinds.set("note_left","A"); game.ClientPrefs.keyBinds.set("note_down","S"); game.ClientPrefs.keyBinds.set("note_right","D");
+		  case 5: ClientPrefs.keyBinds.set("note_up","W"); ClientPrefs.keyBinds.set("note_left","A"); ClientPrefs.keyBinds.set("note_down","S"); ClientPrefs.keyBinds.set("note_right","D");
 		  
 		  
 		}
