@@ -3143,9 +3143,9 @@ class PlayState extends MusicBeatState
 	      
 	      
 	    
-	    defaultHealthColorArray = dad.healthColorArray;
 	    
-	    dad.healthColorArray = [255, 0, 0];
+	    
+	    
 	    
 	    var delayTimer: FlxTimer = new FlxTimer();
 	    
@@ -3157,7 +3157,7 @@ class PlayState extends MusicBeatState
 	        
 	      
 	    }
-	      dad.healthColorArray = defaultHealthColorArray;
+	      
 	    
 	    
 	  }
