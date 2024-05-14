@@ -13,8 +13,8 @@ import states.TitleState;
 	public var dynamicColors:Bool = true; // yes cause its cool -Karim
 	public var controlsAlpha:Float = FlxG.onMobile ? 0.9 : 0;
 	#if mobile public var screensaver:Bool = false; #end
-	#if android public var storageType:String = "EXTERNAL_DATA"; #end
-        public var hitboxType:String = "Gradient";
+	#if android public var storageType:String = "EXTERNAL"; #end
+        public var hitboxType:String = "Hidden";
         // end of Mobile and Mobile Controls Releated
 	public var popUpRating:Bool = true;
 	public var downScroll:Bool = false;
@@ -26,9 +26,9 @@ import states.TitleState;
 	public var antialiasing:Bool = true;
 	public var noteSkin:String = 'Default';
 	public var splashSkin:String = 'Psych';
-	public var splashAlpha:Float = 1;
+	public var splashAlpha:Float = 0;
 	public var lowQuality:Bool = false;
-	public var shaders:Bool = false;
+	public var shaders:Bool = true;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
 	public var framerate:Int = 60;
 	public var gameOverVibration:Bool = false;
@@ -47,7 +47,7 @@ import states.TitleState;
 		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 
 	public var ghostTapping:Bool = false;
-	public var timeBarType:String = 'Song Name';
+	public var timeBarType:String = 'Disabled';
 	public var scoreZoom:Bool = true;
 	public var noReset:Bool = true;
 	public var healthBarAlpha:Float = 1;

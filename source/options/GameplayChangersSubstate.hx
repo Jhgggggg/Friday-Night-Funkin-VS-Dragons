@@ -23,33 +23,9 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		var goption:GameplayOption = new GameplayOption('Scroll Type', 'scrolltype', STRING, 'multiplicative', ["multiplicative", "constant"]);
 		optionsArray.push(goption);
 
-		var option:GameplayOption = new GameplayOption('Scroll Speed', 'scrollspeed', FLOAT, 1);
-		option.scrollSpeed = 2.0;
-		option.minValue = 0.35;
-		option.changeValue = 0.05;
-		option.decimals = 2;
-		if (goption.getValue() != "constant")
-		{
-			option.displayFormat = '%vX';
-			option.maxValue = 3;
-		}
-		else
-		{
-			option.displayFormat = "%v";
-			option.maxValue = 6;
-		}
-		optionsArray.push(option);
+		
 
-		#if FLX_PITCH
-		var option:GameplayOption = new GameplayOption('Playback Rate', 'songspeed', FLOAT, 1);
-		option.scrollSpeed = 1;
-		option.minValue = 0.5;
-		option.maxValue = 3.0;
-		option.changeValue = 0.05;
-		option.displayFormat = '%vX';
-		option.decimals = 2;
-		optionsArray.push(option);
-		#end
+
 
 		var option:GameplayOption = new GameplayOption('Health Gain Multiplier', 'healthgain', FLOAT, 1);
 		option.scrollSpeed = 2.5;
@@ -68,7 +44,6 @@ class GameplayChangersSubstate extends MusicBeatSubstate
 		optionsArray.push(option);
 
 		optionsArray.push(new GameplayOption('Instakill on Miss', 'instakill', BOOL, false));
-		optionsArray.push(new GameplayOption('Practice Mode', 'practice', BOOL, false));
 		optionsArray.push(new GameplayOption('Botplay', 'botplay', BOOL, false));
 	}
 

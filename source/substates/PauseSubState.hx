@@ -15,7 +15,13 @@ class PauseSubState extends MusicBeatSubstate
 	var grpMenuShit:FlxTypedGroup<Alphabet>;
 
 	var menuItems:Array<String> = [];
-	var menuItemsOG:Array<String> = ['Resume', 'Restart Song', 'Chart Editor', 'Change Difficulty', 'Options', 'Exit to menu'];
+	var menuItemsOG:Array<String> = [
+	  'Resume', 
+	  'Restart Song', 
+	  'Chart Editor', 
+	  //'Change Difficulty', 
+	  'Options', 
+	  'Exit to menu'];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 
@@ -44,9 +50,9 @@ class PauseSubState extends MusicBeatSubstate
 				num = 1;
 				menuItemsOG.insert(3, 'Skip Time');
 			}
-			menuItemsOG.insert(3 + num, 'End Song');
-			menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
-			menuItemsOG.insert(5 + num, 'Toggle Botplay');
+			//menuItemsOG.insert(3 + num, 'End Song');
+			//menuItemsOG.insert(4 + num, 'Toggle Practice Mode');
+			//menuItemsOG.insert(5 + num, 'Toggle Botplay');
 		}
 		menuItems = menuItemsOG;
 
@@ -257,14 +263,14 @@ class PauseSubState extends MusicBeatSubstate
 				case "Resume":
 					Paths.clearUnusedMemory();
 					close();
-				case 'Change Difficulty':
-					menuItems = difficultyChoices;
-					deleteSkipTimeText();
-					regenMenu();
-				case 'Toggle Practice Mode':
-					PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
-					PlayState.changedDifficulty = true;
-					practiceText.visible = PlayState.instance.practiceMode;
+				//case 'Change Difficulty':
+					//menuItems = difficultyChoices;
+					//deleteSkipTimeText();
+					//regenMenu();
+				//case 'Toggle Practice Mode':
+					//PlayState.instance.practiceMode = !PlayState.instance.practiceMode;
+					//PlayState.changedDifficulty = true;
+					//practiceText.visible = PlayState.instance.practiceMode;
 				case "Restart Song":
 					restartSong();
 				case 'Chart Editor':
@@ -272,32 +278,32 @@ class PauseSubState extends MusicBeatSubstate
 				case "Leave Charting Mode":
 					restartSong();
 					PlayState.chartingMode = false;
-				case 'Skip Time':
-					if(curTime < Conductor.songPosition)
-					{
-						PlayState.startOnTime = curTime;
-						restartSong(true);
-					}
-					else
-					{
-						if (curTime != Conductor.songPosition)
+				//case 'Skip Time':
+					//if(curTime < Conductor.songPosition)
+					//{
+						//PlayState.startOnTime = curTime;
+						//restartSong(true);
+					//}
+					//else
+					//{
+						/*if (curTime != Conductor.songPosition)
 						{
 							PlayState.instance.clearNotesBefore(curTime);
 							PlayState.instance.setSongTime(curTime);
 						}
 						close();
-					}
-				case 'End Song':
-					close();
-					PlayState.instance.notes.clear();
-					PlayState.instance.unspawnNotes = [];
-					PlayState.instance.finishSong(true);
-				case 'Toggle Botplay':
+					}*/
+				//case 'End Song':
+					//close();
+					//PlayState.instance.notes.clear();
+					//PlayState.instance.unspawnNotes = [];
+					//PlayState.instance.finishSong(true);
+				/*case 'Toggle Botplay':
 					PlayState.instance.cpuControlled = !PlayState.instance.cpuControlled;
 					PlayState.changedDifficulty = true;
 					PlayState.instance.botplayTxt.visible = PlayState.instance.cpuControlled;
 					PlayState.instance.botplayTxt.alpha = 1;
-					PlayState.instance.botplaySine = 0;
+					PlayState.instance.botplaySine = 0;*/
 				case 'Options':
 					PlayState.instance.paused = true; // For lua
 					PlayState.instance.vocals.volume = 0;

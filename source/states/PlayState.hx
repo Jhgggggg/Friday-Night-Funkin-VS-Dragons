@@ -281,6 +281,9 @@ class PlayState extends MusicBeatState
 	override public function create()
 	{
 		//trace('Playback Rate: ' + playbackRate);
+		
+		
+		
 		Paths.clearStoredMemory();
 
 		startCallback = startCountdown;
@@ -405,6 +408,7 @@ class PlayState extends MusicBeatState
 			case 'cgstage1': var missesSprite = new BGSprite("missesSprite", healthBar.x - healthBar.width - 20, healthBar.y - 20, 0.2, 0.2);
 			add(missesSprite);
 		  case 'cgstage2': var missesSprite = new BGSprite("missesSprite",healthBar.x - healthBar.width - 20, healthBar.y - 20, 0.2, 0.2);
+		  add(missesSprite);
 		}
 		
 
@@ -1812,6 +1816,11 @@ class PlayState extends MusicBeatState
 
 	override public function update(elapsed:Float)
 	{
+	  
+	  game.ClientPrefs.ghostTapping = false;
+	  
+	  
+	  
 		if(!inCutscene && !paused && !freezeCamera) {
 			FlxG.camera.followLerp = 0.04 * cameraSpeed * playbackRate;
 			if(!startingSong && !endingSong && boyfriend.getAnimationName().startsWith('idle')) {
@@ -3078,6 +3087,8 @@ class PlayState extends MusicBeatState
 	{
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
+		
+		game.opponentStrums.members[note.noteData].playAnim("static",true);
 
 		if (songName != 'tutorial')
 			camZooming = true;
@@ -3127,6 +3138,17 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
+      notes.forEachAlive(daNote: Note){
+	      
+	      if(daNote.mustPress == false){
+	        if(daNote.noteType != "Kill Note"){
+	        daNote.multAlpha = 0.4;
+	        }else {
+	          daNote.multAlpha = 1;
+	        }
+	      }
+	      
+	    }
 	    defaultHealthColorArray = dad.healthColorArray;
 	    
 	    dad.healthColorArray = [255, 0, 0];
@@ -3135,6 +3157,17 @@ class PlayState extends MusicBeatState
 	    
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
+        notes.forEachAlive(daNote: Note){
+	      
+	      if(daNote.mustPress == false){
+	        if(daNote.noteType != "Kill Note"){
+	        daNote.multAlpha = 1;
+	        }else {
+	          daNote.multAlpha = 1;
+	        }
+	      }
+	      
+	    }
 	      dad.healthColorArray = defaultHealthColorArray;
 	    });
 	    
@@ -3289,6 +3322,13 @@ class PlayState extends MusicBeatState
 	override function stepHit()
 	{
 		super.stepHit();
+		
+		switch(curStep){
+		  
+		  case 5: game.ClientPrefs.keyBinds.set("note_up","W"); game.ClientPrefs.keyBinds.set("note_left","A"); game.ClientPrefs.keyBinds.set("note_down","S"); game.ClientPrefs.keyBinds.set("note_right","D");
+		  
+		  
+		}
 		
 		switch(curStage){
 		  

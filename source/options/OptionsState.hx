@@ -11,14 +11,10 @@ import sys.thread.Mutex;
 class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
-		'Note Colors',
 		'Controls',
-		'Adjust Delay and Combo',
 		'Graphics',
-		'Visuals',
 		'Gameplay'
 		#if TRANSLATIONS_ALLOWED , 'Language' #end
-		,'Mobile Options'
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
@@ -34,20 +30,20 @@ class OptionsState extends MusicBeatState
 		}
 		switch(label)
 		{
-			case 'Note Colors':
-				openSubState(new options.NotesSubState());
+			//case 'Note Colors':
+			//	openSubState(new options.NotesSubState());
 			case 'Controls':
 				openSubState(new options.ControlsSubState());
 			case 'Graphics':
 				openSubState(new options.GraphicsSettingsSubState());
-			case 'Visuals':
-				openSubState(new options.VisualsSettingsSubState());
+			//case 'Visuals':
+			//	openSubState(new options.VisualsSettingsSubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
-			case 'Adjust Delay and Combo':
-				MusicBeatState.switchState(new options.NoteOffsetState());
-			case 'Mobile Options':
-				openSubState(new mobile.options.MobileOptionsSubState());
+			//case 'Adjust Delay and Combo':
+			//	MusicBeatState.switchState(new options.NoteOffsetState());
+			// case 'Mobile Options':
+			//	openSubState(new mobile.options.MobileOptionsSubState());
 			#if TRANSLATIONS_ALLOWED
 			case 'Language':
 				openSubState(new options.LanguageSubState());
