@@ -97,6 +97,8 @@ class PlayState extends MusicBeatState
 		['Perfect!!', 1] //The value on this one isn't used actually, since Perfect is always "1"
 	];
 
+   
+
 	//event variables
 	private var isCameraOnForcedPos:Bool = false;
 	
@@ -393,6 +395,8 @@ class PlayState extends MusicBeatState
 		boyfriendGroup = new FlxSpriteGroup(BF_X, BF_Y);
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
+		
+		
 
 		switch (curStage)
 		{
@@ -405,10 +409,14 @@ class PlayState extends MusicBeatState
 			case 'school': new states.stages.School(); //Week 6 - Senpai, Roses
 			case 'schoolEvil': new states.stages.SchoolEvil(); //Week 6 - Thorns
 			case 'tank': new states.stages.Tank(); //Week 7 - Ugh, Guns, Stress
-			case 'cgstage1': var missesSprite = new BGSprite("missesSprite", healthBar.x - healthBar.width - 20, healthBar.y - 20, 0.2, 0.2);
+			case 'cgstage1': var missesSprite = new BGSprite("icon", healthBar.x - healthBar.width - 20, healthBar.y - 20, 0.2, 0.2);
 			add(missesSprite);
-		  case 'cgstage2': var missesSprite = new BGSprite("missesSprite",healthBar.x - healthBar.width - 20, healthBar.y - 20, 0.2, 0.2);
-		  add(missesSprite);
+		  case 'cgstageAll': 
+		  // Images to load in stage:
+		  
+		  var image = new BGSprite("bad", 300, 30, 0.2, 0.2);
+		  image.scrollFactor.set();
+		  add(image);
 		}
 		
 
@@ -2983,6 +2991,13 @@ class PlayState extends MusicBeatState
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
+		
+		if(songMisses < ClientPrefs.missLimit){
+		  
+		}else {
+		  healthBar.set_health(0);
+		}
+		
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1)
 				invalidateNote(note);
@@ -3085,10 +3100,20 @@ class PlayState extends MusicBeatState
 
 	function opponentNoteHit(note:Note):Void
 	{
+	  
+	  opponentStrums.members[note.noteData].playAnim("static",true);
+	  
+	  if(ClientPrefs.healthGain){
+	    if(healthBar.health > 1.3){
+	    healthBar.set_health(healthBar.health - 0.4);
+	    }
+	  }
+	  
+	  
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('opponentNoteHitPre', [note]);
 		
-		opponentStrums.members[note.noteData].playAnim("static",true);
+		
 
 		if (songName != 'tutorial')
 			camZooming = true;
@@ -3138,10 +3163,14 @@ class PlayState extends MusicBeatState
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
-      
+      note.hitCausesMiss = true;
 	      
-	      
-	      
+	    
+	   notes.forEachAlive(function (n: Note){
+	     if(!n.mustPress){
+	       n.multAlpha = 0.4;
+	     }
+	   });
 	    
 	    
 	    
@@ -3152,7 +3181,13 @@ class PlayState extends MusicBeatState
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
         
-	      
+	      notes.forEachAlive(function (n:Note){
+	        
+	        if(!n.mustPress){
+	          n.multAlpha = 1;
+	        }
+	        
+	      });
 	     
 	        
 	      
@@ -3187,6 +3222,8 @@ class PlayState extends MusicBeatState
 							boyfriend.playAnim('hurt', true);
 							boyfriend.specialAnim = true;
 						}
+					
+					
 				}
 			}
 

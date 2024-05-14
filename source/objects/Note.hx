@@ -83,7 +83,7 @@ class Note extends FlxSprite
 	public static var SUSTAIN_SIZE:Int = 44;
 	public static var swagWidth:Float = 160 * 0.7;
 	public static var colArray:Array<String> = ['purple', 'blue', 'green', 'red'];
-	public static var defaultNoteSkin(default, never):String = 'noteSkins/NOTE_assets';
+	public static var defaultNoteSkin(default, never):String = 'noteSkins/AGOTI_Notes';
 
 	public var noteSplashData:NoteSplashData = {
 		disabled: false,
@@ -169,14 +169,11 @@ class Note extends FlxSprite
 			switch(value) {
 				case 'Hurt Note':
 					ignoreNote = mustPress;
-					//reloadNote('HURTNOTE_assets');
+					reloadNote('HURTNOTE');
 					//this used to change the note texture to HURTNOTE_assets.png,
 					//but i've changed it to something more optimized with the implementation of RGBPalette:
 
 					// note colors
-					rgbShader.r = 0xFF101010;
-					rgbShader.g = 0xFFFF0000;
-					rgbShader.b = 0xFF990022;
 
 					// splash data and colors
 					noteSplashData.r = 0xFFFF0000;
@@ -196,6 +193,8 @@ class Note extends FlxSprite
 					noMissAnimation = true;
 				case 'GF Sing':
 					gfNote = true;
+			  case 'Kill Note':
+			  reloadNote("KILLNOTE");
 			}
 			if (value != null && value.length > 1) NoteTypesConfig.applyNoteTypeData(this, value);
 			if (hitsound != 'hitsound' && ClientPrefs.data.hitsoundVolume > 0) Paths.sound(hitsound); //precache new sound for being idiot-proof
