@@ -1817,7 +1817,7 @@ class PlayState extends MusicBeatState
 	override public function update(elapsed:Float)
 	{
 	  
-	  ClientPrefs.ghostTapping = false;
+	  
 	  
 	  
 	  
