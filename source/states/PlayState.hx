@@ -185,7 +185,7 @@ class PlayState extends MusicBeatState
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
-	public var health(default, set):Float = 1;
+	public var health(default, set):Float = 0.2;
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
@@ -754,10 +754,17 @@ class PlayState extends MusicBeatState
 		#end
 	}
 	#end
+	
+	// Nao esquecer disso
 
 	public function reloadHealthBarColors() {
 		healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
 			FlxColor.fromRGB(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]));
+	}
+	
+	public function setHealthColorPlayer(r: Int, g: Int, b: Int){
+healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArray[1], dad.healthColorArray[2]),
+			FlxColor.fromRGB(r, g, b));
 	}
 
 	public function addCharacterToList(newCharacter:String, type:Int) {
@@ -1974,7 +1981,7 @@ class PlayState extends MusicBeatState
 							if(daNote.mustPress)
 							{
 								if(cpuControlled && !daNote.blockHit && daNote.canBeHit && (daNote.isSustainNote || daNote.strumTime <= Conductor.songPosition))
-								goodNoteHit(daNote);
+							goodNoteHit(daNote);
 							}
 							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
 								opponentNoteHit(daNote);
@@ -3108,6 +3115,7 @@ class PlayState extends MusicBeatState
 	 
 	    if(healthBar.health > 1.3){
 	    healthBar.health = healthBar.health - 0.4;
+	    healthBar.update();
 	  }
 	  
 	  
@@ -3165,6 +3173,7 @@ class PlayState extends MusicBeatState
 	    
 	    boyfriend.stunned = true;
       note.hitCausesMiss = true;
+      setHealthColorPlayer(255, 0, 0);
 	      
 	    
 	   notes.forEachAlive(function (n: Note){
@@ -3181,6 +3190,8 @@ class PlayState extends MusicBeatState
 	    
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
+	      
+	      setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
         
 	      notes.forEachAlive(function (n:Note){
 	        
@@ -3356,7 +3367,17 @@ class PlayState extends MusicBeatState
 		
 		switch(curStage){
 		  
-		  case 'cgstage1':
+		  case 'cgstage1' | 'cgstage2' | 'cgstageAll' | 'cgstage3':
+		  {
+		    
+		    var missIndicatorSprite: FlxSprite = new FlxSprite(healthBar.x, healthBar.y - 20);
+		    missIndicatorSprite.loadGraphic(Paths.image("indicator"));
+		    missIndicatorSprite.scrollFactor.set(0.9, 0.9);
+		    missIndicatorSprite.antialiasing = true;
+		    add(missIndicatorSprite);
+		    
+		    
+		  }
 		  
 		    
 		  
