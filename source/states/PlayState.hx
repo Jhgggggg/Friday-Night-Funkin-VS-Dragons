@@ -3110,13 +3110,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function opponentNoteHit(note:Note):Void
 	{
 	  
-	  opponentStrums.members[note.noteData].playAnim("static",true);
 	  
 	 
-	    if(healthBar.health > 1.3){
-	    healthBar.health = healthBar.health - 0.4;
-	    healthBar.update();
-	  }
+	    
 	  
 	  
 		var result:Dynamic = callOnLuas('opponentNoteHitPre', [notes.members.indexOf(note), Math.abs(note.noteData), note.noteType, note.isSustainNote]);
