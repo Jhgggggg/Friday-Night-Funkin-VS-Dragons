@@ -3214,11 +3214,12 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
       FlxG.sound.play(Paths.sound("explosion"));
       
       
-      healthBarTween = FlxTween.tween(healthBar, {colors: [255, 0, 0], 0.2, {
+      healthBarTween = FlxTween.tween(healthBar, {colors: [255, 0, 0]}, 0.2, {
         onComplete: function(tween: FlxTween){
 setHealthColorPlayer(255, 0, 0);
         }
       });
+    
       
       setHealthColorPlayer(255, 0, 0);
       
