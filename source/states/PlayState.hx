@@ -1562,18 +1562,18 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	
 	public function FireDodge(){
 	  
-	  var timer: FlxTimer = new FlxTimer(2, DodgeTimeCompleted, 2);
+	  var timer: FlxTimer = new FlxTimer(2, 2, DodgeTimeCompled);
 	  
 	}
 	
 	public function DodgeTimeCompleted(timerUh: FlxTimer){
 	  var loops = timerUh.loopsLeft;
 	  
-	  if(loops == 2){
-	    if(FlxG.Keys.justPressed.SPACE){
+	  if(loops == 1){
+	    if(FlxG.keys.justPressed.SPACE){
 	      
 	    }else {
-	      healthBar.valueFunction = 0;
+	      healthBar.valueFunction = 0.0;
 	    }
 	  }
 	}
@@ -1858,11 +1858,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	override public function update(elapsed:Float)
 	{
 	  
-	  if(healthGainActived){
-	    if(healthBar.valueFunction > 0.2){
-	      healthBar.valueFunction = healthBar.valueFunction - 0.02;
-	    }
-	  }
+	  
 	  
 	  
 	  
@@ -3138,9 +3134,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function opponentNoteHit(note:Note):Void
 	{
 	  
-	 if(healthBar.valueFunction > 0.2 && healthGainActived != true){
-	 healthBar.valueFunction = healthBar.valueFunction - 0.2;
-	 }
+	 
 	  
 	 
 	 
@@ -3204,14 +3198,14 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    
 	    boyfriend.stunned = true;
       note.hitCausesMiss = true;
-      Paths.sound.play(Paths.sound("explosion"));
+      FlxG.sound.play(Paths.sound("explosion"));
       
       
       
       setHealthColorPlayer(255, 0, 0);
 	      
 	    
-	   unspawnNotes.forEachAlive(function (n: Note){
+	   notes.forEachAlive(function (n: Note){
 	       n.multAlpha = 0.4;
 	   });
 	    
@@ -3226,7 +3220,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	      
 	      setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
         
-	      unspawnNotes.forEachAlive(function (n:Note){
+	      notes.forEachAlive(function (n:Note){
 	        
 	          n.multAlpha = 1;
 	        
