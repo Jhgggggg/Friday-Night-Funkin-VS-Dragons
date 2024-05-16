@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="qtbgblack.png"><SubTexture name="GF Dancing Beat0000" x="0" y="0" width="2342" height="1103" frameX="0" frameY="0" frameWidth="2342" frameHeight="1103" />
+<SubTexture name="GF Dancing Beat0002" x="0" y="0" width="2342" height="1103" frameX="0" frameY="0" frameWidth="2342" frameHeight="1103" />
+</TextureAtlas>

@@ -1,0 +1,45 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				520,
+				231
+			],
+			"anim": "danceLeft",
+			"fps": 24,
+			"name": "qtwhite bg",
+			"indices": []
+		},
+		{
+			"offsets": [
+				520,
+				231
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "danceRight",
+			"indices": [],
+			"name": "qtwhite bg"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/qtwhitebg",
+	"position": [
+		610,
+		190
+	],
+	"healthicon": "gf",
+	"flip_x": false,
+	"healthbar_colors": [
+		165,
+		0,
+		77
+	],
+	"camera_position": [
+		-1870,
+		-890
+	],
+	"sing_duration": 4,
+	"scale": 2.2
+}

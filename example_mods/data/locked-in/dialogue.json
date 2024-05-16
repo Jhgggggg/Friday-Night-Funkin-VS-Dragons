@@ -1,0 +1,46 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.1,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "...???"
+		},
+		{
+			"speed": 0.1,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep?"
+		},
+		{
+			"speed": 0.15,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "lucky blank",
+			"text": "Hello."
+		},
+		{
+			"speed": 0.1,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "..."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "lucky blank",
+			"text": "[menacing glare]"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Beep bop skoop."
+		}
+	]
+}

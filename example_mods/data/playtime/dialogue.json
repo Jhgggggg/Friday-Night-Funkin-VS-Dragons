@@ -1,0 +1,67 @@
+{
+	"dialogue": [
+		{
+			"expression": "qt talk",
+			"text": "... Now, what do we wanna do, Lucky?",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		},
+		{
+			"expression": "qt talk happy 3",
+			"text": "Oh! Boyfriend! Hiii!",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Beep",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "kb talk",
+			"text": "Oh. Hey.",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		},
+		{
+			"expression": "qt talk happy 3",
+			"text": "I was just thinking of what to do next... Y'know, with Lucky! Remember him?",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		},
+		{
+			"expression": "lucky blank",
+			"text": ". . .",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.1
+		},
+		{
+			"expression": "qt talk happy 2",
+			"text": "...Hey, wait! Wanna do a rap battle with him?",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		},
+		{
+			"expression": "talk",
+			"text": "Boop skadoop",
+			"boxState": "normal",
+			"portrait": "bf",
+			"speed": 0.05
+		},
+		{
+			"expression": "kb talk up",
+			"text": "(I'll just opt out of this.)",
+			"boxState": "normal",
+			"portrait": "qtkb",
+			"speed": 0.05
+		}
+	]
+}

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="qtKbLack_2.png">
+	<!-- Created with Adobe Animate version 20.0.1.19255 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="qtkb down0000" x="4" y="4" width="526" height="625" frameX="-1" frameY="-10" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0001" x="4" y="4" width="526" height="625" frameX="-1" frameY="-10" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0002" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0003" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0004" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0005" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0006" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0007" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0008" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0009" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb down0010" x="534" y="4" width="521" height="635" frameX="0" frameY="0" frameWidth="527" frameHeight="635"/>
+	<SubTexture name="qtkb idle0000" x="1059" y="4" width="572" height="717" frameX="-10" frameY="-18" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0001" x="1059" y="4" width="572" height="717" frameX="-10" frameY="-18" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0002" x="1635" y="4" width="578" height="712" frameX="-8" frameY="-23" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0003" x="1635" y="4" width="578" height="712" frameX="-8" frameY="-23" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0004" x="2217" y="4" width="570" height="721" frameX="-7" frameY="-14" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0005" x="2217" y="4" width="570" height="721" frameX="-7" frameY="-14" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0006" x="2791" y="4" width="552" height="730" frameX="-6" frameY="-5" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0007" x="2791" y="4" width="552" height="730" frameX="-6" frameY="-5" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0008" x="3347" y="4" width="546" height="735" frameX="0" frameY="0" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0009" x="3347" y="4" width="546" height="735" frameX="0" frameY="0" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb idle0010" x="4" y="743" width="546" height="735" frameX="-4" frameY="0" frameWidth="586" frameHeight="735"/>
+	<SubTexture name="qtkb left0000" x="554" y="743" width="539" height="735" frameX="0" frameY="0" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0001" x="554" y="743" width="539" height="735" frameX="0" frameY="0" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0002" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0003" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0004" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0005" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0006" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0007" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0008" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0009" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb left0010" x="1097" y="743" width="531" height="731" frameX="-11" frameY="-4" frameWidth="542" frameHeight="735"/>
+	<SubTexture name="qtkb right0000" x="1632" y="743" width="558" height="743" frameX="-9" frameY="0" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0001" x="1632" y="743" width="558" height="743" frameX="-9" frameY="0" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0002" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0003" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0004" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0005" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0006" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0007" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0008" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0009" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb right0010" x="2194" y="743" width="572" height="736" frameX="0" frameY="-7" frameWidth="572" frameHeight="743"/>
+	<SubTexture name="qtkb up0000" x="2770" y="743" width="538" height="756" frameX="-2" frameY="0" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0001" x="2770" y="743" width="538" height="756" frameX="-2" frameY="0" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0002" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0003" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0004" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0005" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0006" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0007" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0008" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0009" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+	<SubTexture name="qtkb up0010" x="3312" y="743" width="547" height="755" frameX="0" frameY="-7" frameWidth="547" frameHeight="762"/>
+</TextureAtlas>

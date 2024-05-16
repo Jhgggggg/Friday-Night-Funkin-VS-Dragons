@@ -1,0 +1,89 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				130,
+				338
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "kb idle"
+		},
+		{
+			"offsets": [
+				295,
+				392
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "kb left"
+		},
+		{
+			"offsets": [
+				36,
+				332
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "kb down"
+		},
+		{
+			"offsets": [
+				121,
+				336
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "kb up"
+		},
+		{
+			"offsets": [
+				37,
+				271
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "kb right"
+		},
+		{
+			"offsets": [
+				122,
+				334
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "shake head",
+			"indices": [],
+			"name": "kb altanim"
+		}
+	],
+	"no_antialiasing": true,
+	"image": "characters/kbDesperate",
+	"position": [
+		-40,
+		340
+	],
+	"healthicon": "justkb",
+	"flip_x": false,
+	"healthbar_colors": [
+		90,
+		90,
+		90
+	],
+	"camera_position": [
+		-40,
+		-320
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

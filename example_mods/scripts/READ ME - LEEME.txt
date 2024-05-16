@@ -1,0 +1,11 @@
+-english-
+please do not move this folders on to the script folder. open the folder of
+the script you need, and move it to the script folder. moving the whole
+folder wont work.
+credit not needed.
+-spanish-
+porfavor no muevas estas carpetas a tu carpeta de scripts. habre la carpeta
+con el script que quieres usar y muevelo a tu carpeta de scripts.
+ser vago no te ayudara, ya que mover las carpetas a la carpeta de scripts
+no funcionara.
+creditos no necesarios.

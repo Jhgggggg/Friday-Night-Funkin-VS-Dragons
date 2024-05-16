@@ -1,0 +1,39 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "qt talk happy 3",
+			"text": "That was great! I forgot how fun this was!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "boop bop skadoo"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "kb talk",
+			"text": "(... Can I have a turn with the plush?)"
+		},
+		{
+			"speed": 0.16,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "qt talk curious",
+			"text": "...?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "qtkb",
+			"boxState": "normal",
+			"expression": "qt talk happy 2",
+			"text": "Well... sure!"
+		}
+	]
+}

@@ -1,0 +1,142 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				0,
+				0
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "idle-loop",
+			"indices": [
+				10,
+				11,
+				12,
+				12
+			],
+			"name": "lack idle dance"
+		},
+		{
+			"offsets": [
+				-9,
+				10
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "singLEFT-loop",
+			"indices": [
+				12,
+				13,
+				14,
+				15
+			],
+			"name": "lack left note"
+		},
+		{
+			"offsets": [
+				0,
+				27
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "singRIGHT-loop",
+			"indices": [
+				15,
+				16,
+				17,
+				18
+			],
+			"name": "lack right note"
+		},
+		{
+			"offsets": [
+				-6,
+				50
+			],
+			"loop": true,
+			"fps": 24,
+			"anim": "singUP-loop",
+			"indices": [
+				56,
+				57,
+				58,
+				59
+			],
+			"name": "lack up note"
+		},
+		{
+			"offsets": [
+				-2,
+				198
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "qtkb idle"
+		},
+		{
+			"offsets": [
+				21,
+				200
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "qtkb left"
+		},
+		{
+			"offsets": [
+				-19,
+				113
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "qtkb down"
+		},
+		{
+			"offsets": [
+				1,
+				228
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "qtkb up"
+		},
+		{
+			"offsets": [
+				-33,
+				201
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "qtkb right"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/qtKbLack_2",
+	"position": [
+		-40,
+		290
+	],
+	"healthicon": "kblack",
+	"flip_x": false,
+	"healthbar_colors": [
+		130,
+		130,
+		130
+	],
+	"camera_position": [
+		50,
+		-140
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

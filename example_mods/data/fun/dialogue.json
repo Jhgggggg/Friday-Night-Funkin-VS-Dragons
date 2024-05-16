@@ -1,0 +1,39 @@
+{
+	"dialogue": [
+		{
+			"expression": "qt talk happy",
+			"text": "Woo! That was fun! Isn't that right, Lucky?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "qtkb"
+		},
+		{
+			"expression": "lucky blank",
+			"text": ". . .",
+			"boxState": "normal",
+			"speed": 0.1,
+			"portrait": "qtkb"
+		},
+		{
+			"expression": "qt talk",
+			"text": "Wanna do another song?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "qtkb"
+		},
+		{
+			"expression": "talk",
+			"text": "boop",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "kb talk",
+			"text": "(I might join in on this one. Don't count on it, though.)",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "qtkb"
+		}
+	]
+}

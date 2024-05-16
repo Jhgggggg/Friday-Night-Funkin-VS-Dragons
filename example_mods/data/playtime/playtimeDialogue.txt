@@ -1,0 +1,16 @@
+qt:left kb:left bf:right
+:0:talk:0.05:normal:Oh! There he is!\nHey there, cutie!
+:2:talk:0.05:normal:Beep!
+:1:meh:0.05:normal:... Hey.
+:0:happy:0.05:normal:I'm glad I bumped into you,\nbecause I have something for you!
+:2:talk:0.05:normal:Beep bop?
+:0:withlack:0.05:normal:Here he is!
+:1:meh:0.05:normal:...
+:0:withlack:0.05:normal:Hey, I wonder if we can\ndo a singing battle with him?
+:1:meh:0.05:normal:If so, I'm opting out.
+:2:talk:0.05:normal:Boop beep skadoop!
+:0:withlack:0.05:normal:Yayy!!
+
+
+
+

@@ -86,6 +86,8 @@ class PlayState extends MusicBeatState
 
   public var missLimit: Int = 5;
   
+  public var healthGainActived: Bool = false;
+  
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
@@ -545,7 +547,7 @@ class PlayState extends MusicBeatState
 		var splash:NoteSplash = new NoteSplash(100, 100);
 		splash.setupNoteSplash(100, 100);
 		grpNoteSplashes.add(splash);
-		splash.alpha = 0.000001; //cant make it invisible or it won't allow precaching
+		splash.alpha = 0.000001; //t make it invisible or it won't allow precaching
 
 		opponentStrums = new FlxTypedGroup<StrumNote>();
 		playerStrums = new FlxTypedGroup<StrumNote>();
@@ -1549,9 +1551,31 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				addCharacterToList(newCharacter, charType);
 
 			case 'Play Sound':
-				Paths.sound(event.value1); //Precache sound
+				Paths.sound(event.value1);
+				//Precache sound
+			case 'FirerDodge': 
+			FireDodge();
+			// Dodge mechanic
 		}
 		stagesFunc(function(stage:BaseStage) stage.eventPushedUnique(event));
+	}
+	
+	public function FireDodge(){
+	  
+	  var timer: FlxTimer = new FlxTimer(2, DodgeTimeCompleted, 2);
+	  
+	}
+	
+	public function DodgeTimeCompleted(timerUh: FlxTimer){
+	  var loops = timerUh.loopsLeft;
+	  
+	  if(loops == 2){
+	    if(FlxG.Keys.justPressed.SPACE){
+	      
+	    }else {
+	      healthBar.valueFunction = 0;
+	    }
+	  }
 	}
 
 	function eventEarlyTrigger(event:EventNote):Float {
@@ -1834,7 +1858,11 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	override public function update(elapsed:Float)
 	{
 	  
-	  
+	  if(healthGainActived){
+	    if(healthBar.valueFunction > 0.2){
+	      healthBar.valueFunction = healthBar.valueFunction - 0.02;
+	    }
+	  }
 	  
 	  
 	  
@@ -1921,7 +1949,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		if (camZooming)
 		{
 			FlxG.camera.zoom = FlxMath.lerp(defaultCamZoom, FlxG.camera.zoom, Math.exp(-elapsed * 3.125 * camZoomingDecay * playbackRate));
-			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, Math.exp(-elapsed * 3.125 * camZoomingDecay * playbackRate));
+			camHUD.zoom = FlxMath.lerp(1, camHUD.zoom, Math.exp(-elapsed * 3.050 * camZoomingDecay * playbackRate));
 		}
 
 		FlxG.watch.addQuick("secShit", curSection);
@@ -1984,7 +2012,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 							goodNoteHit(daNote);
 							}
 							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
-								opponentNoteHit(daNote);
+							opponentNoteHit(daNote);
 
 							if(daNote.isSustainNote && strum.sustainReduce) daNote.clipToStrumNote(strum);
 
@@ -2069,7 +2097,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		healthBar.percent = (newPercent != null ? newPercent : 0);
 
 		iconP1.animation.curAnim.curFrame = (healthBar.percent < 20) ? 1 : 0; //If health is under 20%, change player icon to frame 1 (losing icon), otherwise, frame 0 (normal)
-		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; //If health is over 80%, change opponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
+		iconP2.animation.curAnim.curFrame = (healthBar.percent > 80) ? 1 : 0; //If health is over 80%, changeopponent icon to frame 1 (losing icon), otherwise, frame 0 (normal)
 		return health;
 	}
 
@@ -3110,7 +3138,11 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function opponentNoteHit(note:Note):Void
 	{
 	  
+	 if(healthBar.valueFunction > 0.2 && healthGainActived != true){
+	 healthBar.valueFunction = healthBar.valueFunction - 0.2;
+	 }
 	  
+	 
 	 
 	    
 	  
@@ -3163,19 +3195,24 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	public function goodNoteHit(note:Note):Void
 	{
 	  
+	  
+	  
+	  
 	  switch(note.noteType){
 	    
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
       note.hitCausesMiss = true;
+      Paths.sound.play(Paths.sound("explosion"));
+      
+      
+      
       setHealthColorPlayer(255, 0, 0);
 	      
 	    
-	   notes.forEachAlive(function (n: Note){
-	     if(!n.mustPress){
+	   unspawnNotes.forEachAlive(function (n: Note){
 	       n.multAlpha = 0.4;
-	     }
 	   });
 	    
 	    
@@ -3189,11 +3226,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	      
 	      setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
         
-	      notes.forEachAlive(function (n:Note){
+	      unspawnNotes.forEachAlive(function (n:Note){
 	        
-	        if(!n.mustPress){
 	          n.multAlpha = 1;
-	        }
 	        
 	      });
 	     
@@ -3227,8 +3262,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				switch(note.noteType) {
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animOffsets.exists('hurt')) {
-							boyfriend.playAnim('hurt', true);
-							boyfriend.specialAnim = true;
+							//boyfriend.playAnim('hurt', true);
+							//boyfriend.specialAnim = true;
+							// Isso é desnecessario
 						}
 					
 					
@@ -3365,6 +3401,16 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		  
 		  case 'cgstage1' | 'cgstage2' | 'cgstageAll' | 'cgstage3':
 		  {
+		    
+		    if(curStep == 30){
+		      camHUD.angle += 40;
+		      healthGainActived = true;
+		    }
+		    
+		    if(curStep == 60){
+		      camHUD.angle -= 40;
+		      healthGainActived = false;
+		    }
 		    
 		    var missIndicatorSprite: FlxSprite = new FlxSprite(healthBar.x, healthBar.y - 20);
 		    missIndicatorSprite.loadGraphic(Paths.image("indicator"));

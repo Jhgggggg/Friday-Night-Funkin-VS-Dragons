@@ -1,0 +1,30 @@
+{
+	"storyName": "You're Welcome",
+	"hideFreeplay": false,
+	"weekBackground": "",
+	"weekBefore": "void",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": false,
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"songs": [
+		[
+			"Unlucky-Bitch",
+			"justkb",
+			[
+				155,
+				0,
+				0
+			]
+		]
+	],
+	"hideStoryMode": true,
+	"weekName": "Unlucky"
+}

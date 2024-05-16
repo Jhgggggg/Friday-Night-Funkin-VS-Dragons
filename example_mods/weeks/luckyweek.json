@@ -1,0 +1,48 @@
+{
+	"storyName": "Meet Lucky!",
+	"hideFreeplay": false,
+	"weekBackground": "sidewalk",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"startUnlocked": true,
+	"weekCharacters": [
+		"",
+		"bf",
+		"gf"
+	],
+	"songs": [
+		[
+			"Playtime",
+			"qtkblack",
+			[
+				255,
+				150,
+				250
+			]
+		],
+		[
+			"Fun",
+			"qtkblack",
+			[
+				255,
+				150,
+				250
+			]
+		],
+		[
+			"Lucky-Plush",
+			"kblack",
+			[
+				255,
+				150,
+				250
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekName": "Lucky Week"
+}

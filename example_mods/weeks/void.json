@@ -1,0 +1,30 @@
+{
+	"songs": [
+		[
+			"Locked-In",
+			"lack",
+			[
+				46,
+				46,
+				46
+			]
+		]
+	],
+	"hideFreeplay": false,
+	"weekBackground": "void",
+	"weekCharacters": [
+		"",
+		"bf",
+		""
+	],
+	"storyName": "...",
+	"weekName": "Void",
+	"freeplayColor": [
+		146,
+		113,
+		253
+	],
+	"hideStoryMode": false,
+	"weekBefore": "luckyweek",
+	"startUnlocked": false
+}
