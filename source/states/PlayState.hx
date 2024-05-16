@@ -1562,7 +1562,8 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	
 	public function FireDodge(){
 	  
-	  var timer: FlxTimer = new FlxTimer(2, 2, DodgeTimeCompled);
+	  var timer: FlxTimer = new FlxTimer();
+	  timer.start(2, 2, DodgeTimeCompleted);
 	  
 	}
 	
@@ -1573,7 +1574,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    if(FlxG.keys.justPressed.SPACE){
 	      
 	    }else {
-	      healthBar.valueFunction = 0.0;
+	      healthBar.valueFunction = healthBar.valueFunction - 1.2;
 	    }
 	  }
 	}
