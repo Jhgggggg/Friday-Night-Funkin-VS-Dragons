@@ -3035,11 +3035,11 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
 		
-		if(songMisses < missLimit){
+		/*if(songMisses < missLimit){
 		  
 		}else {
-		  healthBar.health = 0;
-		}
+		  
+		}*/
 		
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1)
@@ -3063,7 +3063,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function noteMissCommon(direction:Int, note:Note = null)
 	{
 	  
-	  note.multAlpha = 0.2;
+	  
 	  
 		// score and data
 		var subtract:Float = 0.05;
