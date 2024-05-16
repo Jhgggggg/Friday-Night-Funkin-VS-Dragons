@@ -1563,21 +1563,21 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	public function FireDodge(){
 	  
 	  var timer: FlxTimer = new FlxTimer();
-	  timer.start(2, 2, DodgeTimeCompleted);
+	  timer.start(2, (onComplete) -> {
+	    var loopsLefted = onComplete.loopsLeft;
+	    
+	    if(loopsLefted == 1){
+	      if(FlxG.keys.justPressed.SPACE){
+	        
+	      }else {
+	        healthBar.valueFunction -= 5.0;
+	      }
+	    }
+	  }, 2);
 	  
 	}
 	
-	public function DodgeTimeCompleted(timerUh: FlxTimer){
-	  var loops = timerUh.loopsLeft;
-	  
-	  if(loops == 1){
-	    if(FlxG.keys.justPressed.SPACE){
-	      
-	    }else {
-	      healthBar.valueFunction = healthBar.valueFunction - 1.2;
-	    }
-	  }
-	}
+	
 
 	function eventEarlyTrigger(event:EventNote):Float {
 		var returnedValue:Null<Float> = callOnScripts('eventEarlyTrigger', [event.event, event.value1, event.value2, event.strumTime], true, [], [0]);
