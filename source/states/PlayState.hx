@@ -291,6 +291,7 @@ class PlayState extends MusicBeatState
 		
 		
 		
+		
 		Paths.clearStoredMemory();
 
 		startCallback = startCountdown;
@@ -1563,23 +1564,23 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				Paths.sound(event.value1);
 				//Precache sound
 			case 'FirerDodge': 
-			FireDodge();
+			FireDodge([Std.parseInt(event.value1)]);
 			// Dodge mechanic
 		}
 		stagesFunc(function(stage:BaseStage) stage.eventPushedUnique(event));
 	}
 	
-	public function FireDodge(){
+	public function FireDodge(values: Array<Int>){
 	  
 	  var timer: FlxTimer = new FlxTimer();
-	  timer.start(2, (onComplete) -> {
+	  timer.start(values[0], (onComplete) -> {
 	    var loopsLefted = onComplete.loopsLeft;
 	    
 	    if(loopsLefted == 1){
 	      if(FlxG.keys.justPressed.SPACE){
 	        
 	      }else {
-	        FlxG.sound.play(Paths.sound("missnote3"));
+	        healthBar.valueFunction -= 23.6;
 	      }
 	    }
 	  }, 2);
@@ -3035,11 +3036,23 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
 		
-		/*if(songMisses < missLimit){
+		var tweenFlxScrollSpeed: FlxTimer = new FlxTimer();
+		
+		if(songMisses < ClientPrefs.data.missLimit){
 		  
+		  tweenFlxScrollSpeed.start(5, 1, onComplete: function(){
+		    for(i in 0... notes.length){
+		      notes.members[i].y -= 40;
+		    }
+		  });
+		  
+		  for(i in 0... notes.length){
+		    notes.members[i].y += 40;
+		  }
 		}else {
-		  
-		}*/
+		  songMisses = 0;
+		  healthBar.valueFunction -= healthBar.valueFunction * 2.5;
+		}
 		
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1)
@@ -3214,14 +3227,12 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
       FlxG.sound.play(Paths.sound("explosion"));
       
       
-      healthBarTween = FlxTween.tween(healthBar, {colors: [255, 0, 0]}, 0.2, {
-        onComplete: function(tween: FlxTween){
+      
 setHealthColorPlayer(255, 0, 0);
-        }
-      });
+        
     
       
-      setHealthColorPlayer(255, 0, 0);
+    
       
       for(i in 0... notes.length){
         if(notes.members[i].mustPress){
@@ -3241,13 +3252,13 @@ setHealthColorPlayer(255, 0, 0);
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
 	      
-	      healthBarTween = FlxTween.tween(healthBar, {colors: [boyfriend.healthColorArray[0],boyfriend.healthColorArray[1],boyfriend.healthColorArray[2]]}, 0.2, {
+	      
 	        
-	        onComplete: function(tween: FlxTween){
+	        
 setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
-	        }
 	        
-	      });
+	        
+	      
 	      
 	      
         
