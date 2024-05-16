@@ -1067,7 +1067,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 
 			generateStaticArrows(0);
 			generateStaticArrows(1);
-			for (i in 0...players.length) {
+			for (i in 0...playerStrums.length) {
 				setOnScripts('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnScripts('defaultPlayerStrumY' + i, playerStrums.members[i].y);
 			}
