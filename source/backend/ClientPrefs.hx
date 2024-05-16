@@ -92,7 +92,7 @@ import states.TitleState;
 	public var HealthGain: Bool = true;
 }
 
-public class ClientPrefs {
+class ClientPrefs {
 	public static var data:SaveVariables = {};
 	public static var defaultData:SaveVariables = {};
 
