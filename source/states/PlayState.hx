@@ -1570,7 +1570,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	      if(FlxG.keys.justPressed.SPACE){
 	        
 	      }else {
-	        FlxG.sound.play(Paths.sound("missnote3"))
+	        FlxG.sound.play(Paths.sound("missnote3"));
 	      }
 	    }
 	  }, 2);
