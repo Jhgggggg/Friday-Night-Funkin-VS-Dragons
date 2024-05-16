@@ -3243,7 +3243,7 @@ setHealthColorPlayer(255, 0, 0);
 	      
 	      healthBarTween = FlxTween.tween(healthBar, {colors: [boyfriend.healthColorArray[0],boyfriend.healthColorArray[1],boyfriend.healthColorArray[2]]}, 0.2, {
 	        
-	        onComplete: function(FlxTween twee){
+	        onComplete: function(tween: FlxTween){
 setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
 	        }
 	        
