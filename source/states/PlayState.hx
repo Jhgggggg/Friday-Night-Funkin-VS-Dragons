@@ -3040,7 +3040,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		
 		if(songMisses < ClientPrefs.data.missLimit){
 		  
-		  tweenFlxScrollSpeed.start(5, 1, onComplete: function(){
+		  tweenFlxScrollSpeed.start(5, 1, (onComplete) -> {
 		    for(i in 0... notes.length){
 		      notes.members[i].y -= 40;
 		    }
