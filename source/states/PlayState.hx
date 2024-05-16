@@ -85,6 +85,7 @@ class PlayState extends MusicBeatState
 	public static var STRUM_X_MIDDLESCROLL = -278;
 
   public var missLimit: Int = 5;
+  public var healthBarTween: FlxTween;
   
   public var healthGainActived: Bool = false;
   
@@ -294,6 +295,8 @@ class PlayState extends MusicBeatState
 
 		startCallback = startCountdown;
 		endCallback = endSong;
+		
+		
 
 		// for lua
 		instance = this;
@@ -400,7 +403,13 @@ class PlayState extends MusicBeatState
 		dadGroup = new FlxSpriteGroup(DAD_X, DAD_Y);
 		gfGroup = new FlxSpriteGroup(GF_X, GF_Y);
 		
-		
+		switch(curSong)
+		{
+		  
+		  
+		  
+		  
+		}
 
 		switch (curStage)
 		{
@@ -1058,7 +1067,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 
 			generateStaticArrows(0);
 			generateStaticArrows(1);
-			for (i in 0...playerStrums.length) {
+			for (i in 0...players.length) {
 				setOnScripts('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnScripts('defaultPlayerStrumY' + i, playerStrums.members[i].y);
 			}
@@ -2009,7 +2018,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 							goodNoteHit(daNote);
 							}
 							else if (daNote.wasGoodHit && !daNote.hitByOpponent && !daNote.ignoreNote)
-							opponentNoteHit(daNote);
+						opponentNoteHit(daNote);
 
 							if(daNote.isSustainNote && strum.sustainReduce) daNote.clipToStrumNote(strum);
 
@@ -3053,6 +3062,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 
 	function noteMissCommon(direction:Int, note:Note = null)
 	{
+	  
+	  note.multAlpha = 0.2;
+	  
 		// score and data
 		var subtract:Float = 0.05;
 		if(note != null) subtract = note.missHealth;
@@ -3202,13 +3214,22 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
       FlxG.sound.play(Paths.sound("explosion"));
       
       
+      healthBarTween = FlxTween.tween(healthBar, {colors: {255, 0, 0}, 0.2, {
+        onComplete: function(tween: FlxTween){
+setHealthColorPlayer(255, 0, 0);
+        }
+      });
       
       setHealthColorPlayer(255, 0, 0);
+      
+      for(i in 0... notes.length){
+        if(notes.members[i].mustPress){
+          notes.members[i].multAlpha -= 0.2;
+        }
+      }
 	      
 	    
-	   notes.forEachAlive(function (n: Note){
-	       n.multAlpha = 0.4;
-	   });
+	   
 	    
 	    
 	    
@@ -3219,13 +3240,23 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    delayTimer.start(5, (onComplete) -> {
 	      boyfriend.stunned = false;
 	      
-	      setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
-        
-	      notes.forEachAlive(function (n:Note){
+	      healthBarTween = FlxTween.tween(healthBar, {colors: {boyfriend.healthColorArray[0],boyfriend.healthColorArray[1],boyfriend.healthColorArray[2]}}, 0.2, {
 	        
-	          n.multAlpha = 1;
+	        onComplete: function(FlxTween twee){
+setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1], boyfriend.healthColorArray[2]);
+	        }
 	        
 	      });
+	      
+	      
+        
+	      for(i in 0... notes.length){
+	        if(notes.members[i].mustPress){
+	          if(notes.members[i].multAlpha < 1.0){
+	            notes.members[i].multAlpha += 0.2;
+	          }
+	        }
+	      }
 	     
 	        
 	      

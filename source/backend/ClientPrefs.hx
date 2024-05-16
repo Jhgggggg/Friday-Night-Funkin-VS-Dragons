@@ -98,6 +98,7 @@ class ClientPrefs {
 
   public static var CurrentTheme = "default";
   public static var OpponentArrowGlow = true;
+  public static var startsNoteDisabled = false;
   
   public static var MissLimit = 5;
 
