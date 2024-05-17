@@ -1451,7 +1451,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
-				swaNote.noteType = songNotes[3];
+				swagNote.noteType = songNotes[3];
 				if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
 
 				swagNote.scrollFactor.set();
@@ -3054,10 +3054,10 @@ function dodgeTime(tim: FlxTimer){
 		
 		if(songMisses < ClientPrefs.missLimit){
 		  
-		  note.parent.offsetX += 5;
+		  daNote.parent.offsetX += 5;
 		  
 		  tweenFlxScrollSpeed.start(1, (onComplete) -> {
-		    note.parent.offsetX = note.parent.x;
+		    daNote.parent.offsetX = note.parent.x;
 		  });
 		  
 		}else {
