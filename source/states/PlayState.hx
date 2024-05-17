@@ -1580,12 +1580,16 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	      if(FlxG.keys.justPressed.SPACE){
 	        
 	      }else {
-	        Std.int(healthBar.valueFunction) = return 0;
+	        healthBar.valueFunction = () -> Float = () -> {
+	          return 0.0;
+	        }
 	      }
 	    }
 	  }, 2);
 	  
 	}
+	
+
 	
 	
 
@@ -3038,7 +3042,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		
 		var tweenFlxScrollSpeed: FlxTimer = new FlxTimer();
 		
-		if(songMisses < ClientPrefs.data.missLimit){
+		if(songMisses < ClientPrefs.missLimit){
 		  
 		  tweenFlxScrollSpeed.start(5, (onComplete) -> {
 		    for(i in 0... notes.length){
@@ -3051,7 +3055,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		  }
 		}else {
 		  songMisses = 0;
-		  Std.int(healthBar.valueFunction) = 0;
+		  healthBar.valueFunction) = () -> Float = () -> {
+		    return 0.0;
+		  }
 		}
 		
 		notes.forEachAlive(function(note:Note) {

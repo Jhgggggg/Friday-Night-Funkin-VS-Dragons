@@ -89,18 +89,22 @@ import states.TitleState;
 	public var loadingScreen:Bool = true;
 	public var language:String = 'en-US';
 	
+	
+	
 	public var HealthGain: Bool = true;
 }
 
 class ClientPrefs {
 	public static var data:SaveVariables = {};
 	public static var defaultData:SaveVariables = {};
+	
+	public static var missLimit: Int = 5;
 
   public static var CurrentTheme = "default";
   public static var OpponentArrowGlow = true;
   public static var startsNoteDisabled = false;
   
-  public static var MissLimit = 5;
+  
 
 	//Every key has two binds, add your key bind down here and then add your control on options/ControlsSubState.hx and Controls.hx
 	public static var keyBinds:Map<String, Array<FlxKey>> = [
