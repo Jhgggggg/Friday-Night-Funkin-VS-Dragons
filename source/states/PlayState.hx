@@ -3275,7 +3275,7 @@ setHealthColorPlayer(255, 0, 0);
       
       for(i in 0... notes.length){
         if(notes.members[i].mustPress){
-          notes.members[i].multAlpha -= 0.2
+          notes.members[i].multAlpha -= 0.2;
         }
       }
 	      
