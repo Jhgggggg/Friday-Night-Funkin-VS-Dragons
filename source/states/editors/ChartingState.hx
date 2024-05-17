@@ -51,7 +51,8 @@ class ChartingState extends MusicBeatState
 		'Hurt Note',
 		'GF Sing',
 		'No Animation',
-		'Kill Note'
+		'Kill Note',
+		'Dangerous Note'
 	];
 	public var ignoreWarnings = false;
 	var curNoteTypes:Array<String> = [];
@@ -184,7 +185,8 @@ class ChartingState extends MusicBeatState
 	
 	var bgList: Array<String> = [
 	  
-	  "menuDesat"
+	  "menuDesat",
+	  "menuBGBlue"
 	  
 	  ];
 

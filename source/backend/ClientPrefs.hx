@@ -56,6 +56,8 @@ import states.TitleState;
 	public var checkForUpdates:Bool = false;
 	public var comboStacking:Bool = true;
 	
+	public var loopsDodge: Int = 2;
+	
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 

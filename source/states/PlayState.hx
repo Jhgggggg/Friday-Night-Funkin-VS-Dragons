@@ -89,6 +89,8 @@ class PlayState extends MusicBeatState
   
   public var healthGainActived: Bool = false;
   
+  public var chancesToDeathWhenPressNote: Array<Bool>;
+  
 	public static var ratingStuff:Array<Dynamic> = [
 		['You Suck!', 0.2], //From 0% to 19%
 		['Shit', 0.4], //From 20% to 39%
@@ -290,7 +292,7 @@ class PlayState extends MusicBeatState
 		//trace('Playback Rate: ' + playbackRate);
 		
 		
-		
+		chancesToDeathWhenPressNote = [true, true, true];
 		
 		Paths.clearStoredMemory();
 
@@ -1563,9 +1565,8 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 			case 'Play Sound':
 				Paths.sound(event.value1);
 				//Precache sound
-			case 'FirerDodge': 
+			case 'Firer Dodge':
 			FireDodge();
-			// Dodge mechanic
 		}
 		stagesFunc(function(stage:BaseStage) stage.eventPushedUnique(event));
 	}
@@ -1586,6 +1587,14 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 function onTimerCallBack(tim: FlxTimer){
   var loopsLeft = tim.loopsLeft;
   
+  switch(loopsLeft){
+    case 2: 
+    var PrepareWarning: BGSprite = new BGSprite("Warning_Prepare", healthBar.x -40, healthBar.y - 40);
+    PrepareWarning.scrollFactor.set(0.9, 0.9);
+    add(PrepareWarning);
+    
+  }
+  
   if(loopsLeft == 0){
     if(FlxG.keys.justPressed.SPACE){
       
@@ -1595,8 +1604,7 @@ function onTimerCallBack(tim: FlxTimer){
   }else {
     FlxG.sound.play(Paths.sound("missnote3"));
   }
-}
-	
+}	
 	
 
 	function eventEarlyTrigger(event:EventNote):Float {
@@ -1607,7 +1615,9 @@ function onTimerCallBack(tim: FlxTimer){
 
 		switch(event.event) {
 			case 'Kill Henchmen': //Better timing so that the kill sound matches the beat intended
-				return 280; //Plays 280ms before the actual position
+				return 280;
+		 
+		 //Plays 280ms before the actual position
 		}
 		return 0;
 	}
@@ -2486,6 +2496,11 @@ function onTimerCallBack(tim: FlxTimer){
 			callOnScripts('onMoveCamera', ['gf']);
 			return;
 		}
+		
+		public function updateHealthWidthDynamics(widthNew: Int, heightNew: Int): Void {
+		  healthBar.width = widthNew;
+		  healthBar.height = heightNew;
+		}
 
 		var isDad:Bool = (SONG.notes[sec].mustHitSection != true);
 		moveCamera(isDad);
@@ -3054,11 +3069,11 @@ function onTimerCallBack(tim: FlxTimer){
 		
 		if(songMisses < ClientPrefs.missLimit){
 		  
-		  daNote.parent.offsetX += 5;
+		  /*daNote.parent.offsetX += 5;
 		  
 		  tweenFlxScrollSpeed.start(1, (onComplete) -> {
 		    daNote.parent.offsetX = daNote.parent.x;
-		  });
+		  });*/
 		  
 		}else {
 		  songMisses = 0;
@@ -3175,7 +3190,7 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 	 
 	  
-	 
+	 health = health - 0.04;
 	 
 	    
 	  
@@ -3233,6 +3248,21 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 	  switch(note.noteType){
 	    
+	    case "Dangerous Note": 
+	    
+	    if(chancesToDeathWhenPressNote[Math.random() * 0 + chancesToDeathWhenPressNote.length - 1]){
+	      
+	      health = 0;
+	      
+	      
+	    }else {
+	      // Dialogue Sound If player doens't die
+	      FlxG.sound.play(Paths.sound("dialogue"));
+	      
+	      
+	      
+	    }
+	    
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
@@ -3248,7 +3278,7 @@ setHealthColorPlayer(255, 0, 0);
       
       for(i in 0... notes.length){
         if(notes.members[i].mustPress){
-          notes.members[i].multAlpha -= 0.2;
+          notes.members[i].multAlpha -= 0.2
         }
       }
 	      

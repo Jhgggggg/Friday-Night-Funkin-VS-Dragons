@@ -12,7 +12,7 @@ class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
 		'Controls',
-		'Graphics',
+		'Graphics'
 		'Gameplay'
 		#if TRANSLATIONS_ALLOWED , 'Language' #end
 	];
@@ -21,6 +21,7 @@ class OptionsState extends MusicBeatState
 	public static var menuBG:FlxSprite;
 	public static var onPlayState:Bool = false;
 	var tipText:FlxText;
+	var bgList: Array<String>;
 	#if (target.threaded) var mutex:Mutex = new Mutex(); #end
 
 	function openSelectedSubstate(label:String) {
@@ -59,8 +60,10 @@ class OptionsState extends MusicBeatState
 		#if DISCORD_ALLOWED
 		DiscordClient.changePresence("Options Menu", null);
 		#end
+		
+		bgList = ['menuBGBlue','menuBG','menuDesat','menuBGMagenta'];
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[Math.random() * 0 + bgList.length - 1]));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
