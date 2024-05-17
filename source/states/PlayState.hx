@@ -1577,7 +1577,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    return 0.0;
 	  };
 	  */
-	  timer.start(1, 3, dodgeTime);
+	  timer.start(1, 3, null, dodgeTime);
 	  
 	}
 	
@@ -3057,7 +3057,7 @@ function dodgeTime(tim: FlxTimer){
 		  daNote.parent.offsetX += 5;
 		  
 		  tweenFlxScrollSpeed.start(1, (onComplete) -> {
-		    daNote.parent.offsetX = note.parent.x;
+		    daNote.parent.offsetX = daNote.parent.x;
 		  });
 		  
 		}else {
