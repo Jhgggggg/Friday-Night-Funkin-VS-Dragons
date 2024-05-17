@@ -12,8 +12,8 @@ class OptionsState extends MusicBeatState
 {
 	var options:Array<String> = [
 		'Controls',
-		'Graphics'
-		'Gameplay'
+		'Graphics',
+		'Gameplay',
 		#if TRANSLATIONS_ALLOWED , 'Language' #end
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
