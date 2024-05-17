@@ -1573,6 +1573,10 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	public function FireDodge(values: Array<Int>){
 	  
 	  var timer: FlxTimer = new FlxTimer();
+	  var Zero: () -> Float = () -> {
+	    return 0.0;
+	  };
+	  
 	  timer.start(values[0], (onComplete) -> {
 	    var loopsLefted = onComplete.loopsLeft;
 	    
@@ -1580,9 +1584,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	      if(FlxG.keys.justPressed.SPACE){
 	        
 	      }else {
-	        healthBar.valueFunction = () -> Float = () -> {
-	          return 0.0;
-	        }
+	        healthBar.valueFunction = Zero;
 	      }
 	    }
 	  }, 2);
@@ -2987,6 +2989,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		var holdArray:Array<Bool> = [];
 		var pressArray:Array<Bool> = [];
 		var releaseArray:Array<Bool> = [];
+		
 		for (key in keysArray)
 		{
 			holdArray.push(controls.pressed(key));
@@ -3041,6 +3044,9 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		//Dupe note remove
 		
 		var tweenFlxScrollSpeed: FlxTimer = new FlxTimer();
+		var ZeroInFloatReturnVar: () -> Float = () -> {
+		  return 0.0;
+		};
 		
 		if(songMisses < ClientPrefs.missLimit){
 		  
@@ -3055,10 +3061,10 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		  }
 		}else {
 		  songMisses = 0;
-		  healthBar.valueFunction = () -> Float = () -> {
-		    return 0.0;
-		  }
+		  healthBar.valueFunction = ZeroInFloatReturnVar;
 		}
+		
+		
 		
 		notes.forEachAlive(function(note:Note) {
 			if (daNote != note && daNote.mustPress && daNote.noteData == note.noteData && daNote.isSustainNote == note.isSustainNote && Math.abs(daNote.strumTime - note.strumTime) < 1)
