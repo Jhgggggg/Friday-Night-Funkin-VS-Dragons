@@ -14,7 +14,7 @@ class OptionsState extends MusicBeatState
 		'Controls',
 		'Graphics',
 		'Gameplay',
-		#if TRANSLATIONS_ALLOWED , 'Language' #end
+		#if TRANSLATIONS_ALLOWED 'Language' #end
 	];
 	private var grpOptions:FlxTypedGroup<Alphabet>;
 	private static var curSelected:Int = 0;
