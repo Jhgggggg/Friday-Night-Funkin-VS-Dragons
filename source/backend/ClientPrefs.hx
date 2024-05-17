@@ -30,7 +30,7 @@ import states.TitleState;
 	public var lowQuality:Bool = false;
 	public var shaders:Bool = true;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
-	public var framerate:Int = 60;
+	public var framerate:Int = 120;
 	public var gameOverVibration:Bool = false;
 	public var camZooms:Bool = true;
 	public var hideHud:Bool = false;
@@ -53,7 +53,7 @@ import states.TitleState;
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
-	public var checkForUpdates:Bool = true;
+	public var checkForUpdates:Bool = false;
 	public var comboStacking:Bool = true;
 	
 	public var gameplaySettings:Map<String, Dynamic> = [
@@ -70,8 +70,8 @@ import states.TitleState;
 		// oh yeah when you calculate the bps divide it by the songSpeed or rate because it wont scroll correctly when speeds exist.
 		// -kade
 		'songspeed' => 1.0,
-		'healthgain' => 1.0,
-		'healthloss' => 1.0,
+		'healthgain' => 0.4,
+		'healthloss' => 0.4,
 		'instakill' => false,
 		'practice' => false,
 		'botplay' => false,

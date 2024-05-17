@@ -70,7 +70,7 @@ import objects.VideoSprite;
  *
  * If you want to add your stage to the game, copy states/stages/Template.hx,
  * and put your stage code there, then, on PlayState, search for
- * "switch (curStage)", and add your stage to that list.
+ * switch (curStage)", and add your stage to that list.
  *
  * If you want to code Events, you can either code it on a Stage file or on PlayState, if you're doing the latter, search for:
  *
@@ -205,8 +205,8 @@ class PlayState extends MusicBeatState
 	public static var chartingMode:Bool = false;
 
 	//Gameplay settings
-	public var healthGain:Float = 1;
-	public var healthLoss:Float = 1;
+	public var healthGain:Float = 0.4;
+	public var healthLoss:Float = 0.4;
 
 	public var guitarHeroSustains:Bool = false;
 	public var instakillOnMiss:Bool = false;
@@ -584,7 +584,7 @@ class PlayState extends MusicBeatState
 		FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 		moveCameraSection();
 
-		healthBar = new Bar(0, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'healthBar', function() return health, 0, 2);
+		healthBar = new Bar(FlxG.width - 70, FlxG.height * (!ClientPrefs.data.downScroll ? 0.89 : 0.11), 'healthBar', function() return health, 0, 2);
 		healthBar.screenCenter(X);
 		healthBar.leftToRight = false;
 		healthBar.scrollFactor.set();
@@ -1451,7 +1451,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				swagNote.mustPress = gottaHitNote;
 				swagNote.sustainLength = songNotes[2];
 				swagNote.gfNote = (section.gfSection && (songNotes[1]<4));
-				swagNote.noteType = songNotes[3];
+				swaNote.noteType = songNotes[3];
 				if(!Std.isOfType(songNotes[3], String)) swagNote.noteType = ChartingState.noteTypeList[songNotes[3]]; //Backward compatibility + compatibility with Week 7 charts
 
 				swagNote.scrollFactor.set();
@@ -1564,34 +1564,38 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 				Paths.sound(event.value1);
 				//Precache sound
 			case 'FirerDodge': 
-			FireDodge([Std.parseInt(event.value1)]);
+			FireDodge();
 			// Dodge mechanic
 		}
 		stagesFunc(function(stage:BaseStage) stage.eventPushedUnique(event));
 	}
 	
-	public function FireDodge(values: Array<Int>){
+	public function FireDodge(){
 	  
 	  var timer: FlxTimer = new FlxTimer();
-	  var Zero: () -> Float = () -> {
+	  /*var Zero: () -> Float = () -> {
 	    return 0.0;
 	  };
-	  
-	  timer.start(values[0], (onComplete) -> {
-	    var loopsLefted = onComplete.loopsLeft;
-	    
-	    if(loopsLefted == 1){
-	      if(FlxG.keys.justPressed.SPACE){
-	        
-	      }else {
-	        healthBar.valueFunction = Zero;
-	      }
-	    }
-	  }, 2);
+	  */
+	  timer.start(1, 3, dodgeTime);
 	  
 	}
 	
-
+	
+	
+function dodgeTime(tim: FlxTimer){
+  var loopsLeft = tim.loopsLeft;
+  
+  if(loopsLeft == 0){
+    if(FlxG.keys.justPressed.SPACE){
+      
+    }else {
+      health = 0;
+    }
+  }else {
+    FlxG.sound.play(Paths.sound("missnote3"));
+  }
+}
 	
 	
 
@@ -3050,18 +3054,15 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		
 		if(songMisses < ClientPrefs.missLimit){
 		  
-		  tweenFlxScrollSpeed.start(5, (onComplete) -> {
-		    for(i in 0... notes.length){
-		      notes.members[i].y -= 40;
-		    }
+		  note.parent.offsetX += 5;
+		  
+		  tweenFlxScrollSpeed.start(1, (onComplete) -> {
+		    note.parent.offsetX = note.parent.x;
 		  });
 		  
-		  for(i in 0... notes.length){
-		    notes.members[i].y += 40;
-		  }
 		}else {
 		  songMisses = 0;
-		  healthBar.valueFunction = ZeroInFloatReturnVar;
+		  health = 0;
 		}
 		
 		
@@ -3235,7 +3236,6 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    case "Kill Note": 
 	    
 	    boyfriend.stunned = true;
-      note.hitCausesMiss = true;
       FlxG.sound.play(Paths.sound("explosion"));
       
       

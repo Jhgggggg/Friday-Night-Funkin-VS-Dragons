@@ -169,7 +169,7 @@ class Note extends FlxSprite
 			switch(value) {
 				case 'Hurt Note':
 					ignoreNote = mustPress;
-					reloadNote('HURTNOTE');
+					reloadNote('HURTNOTE_assets');
 					//this used to change the note texture to HURTNOTE_assets.png,
 					//but i've changed it to something more optimized with the implementation of RGBPalette:
 
@@ -194,7 +194,7 @@ class Note extends FlxSprite
 				case 'GF Sing':
 					gfNote = true;
 			  case 'Kill Note':
-			  reloadNote("KILLNOTE");
+			  reloadNote("KILLNOTE_assets");
 			}
 			if (value != null && value.length > 1) NoteTypesConfig.applyNoteTypeData(this, value);
 			if (hitsound != 'hitsound' && ClientPrefs.data.hitsoundVolume > 0) Paths.sound(hitsound); //precache new sound for being idiot-proof
@@ -208,8 +208,8 @@ class Note extends FlxSprite
 	  
 	  
 	  
-	  var alphaValur = Math.random() * 0.45 + 1;
-	  multAlpha = alphaValur;
+	  //var alphaValur = Math.random() * 0.45 + 1;
+	  //multAlpha = alphaValur;
 	  
 		super();
 
@@ -430,6 +430,8 @@ class Note extends FlxSprite
 	override function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		
+		
 
 		if (mustPress)
 		{
