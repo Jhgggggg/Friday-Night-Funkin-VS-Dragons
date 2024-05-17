@@ -3059,23 +3059,6 @@ function onTimerCallBack(tim: FlxTimer){
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
 		
-		var tweenFlxScrollSpeed: FlxTimer = new FlxTimer();
-		var ZeroInFloatReturnVar: () -> Float = () -> {
-		  return 0.0;
-		};
-		
-		if(songMisses < ClientPrefs.missLimit){
-		  
-		  /*daNote.parent.offsetX += 5;
-		  
-		  tweenFlxScrollSpeed.start(1, (onComplete) -> {
-		    daNote.parent.offsetX = daNote.parent.x;
-		  });*/
-		  
-		}else {
-		  songMisses = 0;
-		  health = 0;
-		}
 		
 		
 		
@@ -3247,18 +3230,12 @@ function onTimerCallBack(tim: FlxTimer){
 	    
 	    case "Dangerous Note": 
 	    
-	    if(chancesToDeathWhenPressNote[Math.random() * 0 + chancesToDeathWhenPressNote.length - 1]){
+	    
 	      
 	      health = 0;
 	      
 	      
-	    }else {
-	      // Dialogue Sound If player doens't die
-	      FlxG.sound.play(Paths.sound("dialogue"));
-	      
-	      
-	      
-	    }
+
 	    
 	    case "Kill Note": 
 	    
@@ -3336,7 +3313,7 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 
 		if(note.hitCausesMiss) {
 			if(!note.noMissAnimation) {
-				switch(note.noteType) {
+				switchnote.noteType) {
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animOffsets.exists('hurt')) {
 							//boyfriend.playAnim('hurt', true);
