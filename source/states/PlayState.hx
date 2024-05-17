@@ -1577,13 +1577,13 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    return 0.0;
 	  };
 	  */
-	  timer.start(1, 3, null, dodgeTime);
+	  timer.start(1, 3, onTimerCallBack);
 	  
 	}
 	
 	
 	
-function dodgeTime(tim: FlxTimer){
+function onTimerCallBack(tim: FlxTimer){
   var loopsLeft = tim.loopsLeft;
   
   if(loopsLeft == 0){
