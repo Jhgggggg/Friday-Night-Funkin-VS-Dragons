@@ -1577,7 +1577,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 	    return 0.0;
 	  };
 	  */
-	  timer.start(1, 3, onTimerCallBack);
+	  timer.start(1, onTimerCallBack, 3);
 	  
 	}
 	
