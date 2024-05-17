@@ -2497,10 +2497,7 @@ function onTimerCallBack(tim: FlxTimer){
 			return;
 		}
 		
-		public function updateHealthWidthDynamics(widthNew: Int, heightNew: Int): Void {
-		  healthBar.width = widthNew;
-		  healthBar.height = heightNew;
-		}
+		
 
 		var isDad:Bool = (SONG.notes[sec].mustHitSection != true);
 		moveCamera(isDad);
