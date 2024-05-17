@@ -3055,7 +3055,7 @@ healthBar.setColors(FlxColor.fromRGB(dad.healthColorArray[0], dad.healthColorArr
 		  }
 		}else {
 		  songMisses = 0;
-		  healthBar.valueFunction) = () -> Float = () -> {
+		  healthBar.valueFunction = () -> Float = () -> {
 		    return 0.0;
 		  }
 		}
