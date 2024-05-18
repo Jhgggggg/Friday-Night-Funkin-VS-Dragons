@@ -3209,7 +3209,7 @@ if(!ClientPrefs.data.ghostTapping){
 	function opponentNoteHit(note:Note):Void
 	{
 	  
-	 if(health > 0.5)
+	 if(health > 0.5) {
 	  
 	 health = health - 0.04;
 	}
