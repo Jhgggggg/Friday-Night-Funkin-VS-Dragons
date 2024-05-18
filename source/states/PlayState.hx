@@ -3068,9 +3068,7 @@ function onTimerCallBack(tim: FlxTimer){
 		  
 		  songSpeed = 0.2;
 		  
-		  lossSpeedTimer.start(2, (onComplete) -> {
-		    songSpeed = 1;
-		  });
+		  
 		  
 		}
 		
@@ -3095,9 +3093,7 @@ function onTimerCallBack(tim: FlxTimer){
       if(songMisses < ClientPrefs.missLimit){
         songSpeed = 0.2;
         
-        lossSpeedTimer.start(1, (onComplete) -> {
-          songSpeed = 1;
-        });
+        
       }else {
         health = health - 0.6;
       }
@@ -3115,9 +3111,6 @@ if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
         songSpeed = 0.2;
         
-        lossSpeedTimer.start(1, (onComplete) -> {
-          songSpeed = 1;
-        });
       }else {
         health = health - 0.6;
       }
