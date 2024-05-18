@@ -63,7 +63,7 @@ class OptionsState extends MusicBeatState
 		
 		bgList = ['menuBGBlue','menuBG','menuDesat','menuBGMagenta'];
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[Math.random() * 0 + bgList.length - 1]));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[0]));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
