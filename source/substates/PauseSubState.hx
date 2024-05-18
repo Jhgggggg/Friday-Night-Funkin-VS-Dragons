@@ -18,10 +18,9 @@ class PauseSubState extends MusicBeatSubstate
 	var menuItemsOG:Array<String> = [
 	  'Resume', 
 	  'Restart Song', 
-	  'Chart Editor', 
+	  'Chart Editor'
 	  //'Change Difficulty', 
-	  'Options', 
-	  'Exit to menu'];
+	  ];
 	var difficultyChoices = [];
 	var curSelected:Int = 0;
 

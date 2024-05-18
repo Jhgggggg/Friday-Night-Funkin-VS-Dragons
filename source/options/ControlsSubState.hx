@@ -175,7 +175,7 @@ class ControlsSubState extends MusicBeatSubstate
 
 	function addCenteredText(text:Alphabet, option:Array<Dynamic>, id:Int)
 	{
-		text.screenCenter(X);
+		text.x = 30;
 		text.y -= 55;
 		text.startPosition.y -= 55;
 	}

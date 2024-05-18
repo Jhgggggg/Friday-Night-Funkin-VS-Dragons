@@ -86,6 +86,7 @@ class PlayState extends MusicBeatState
 
   public var missLimit: Int = 5;
   public var healthBarTween: FlxTween;
+  public var lossSpeedTimer: FlxTween;
   
   public var healthGainActived: Bool = false;
   
@@ -165,7 +166,7 @@ class PlayState extends MusicBeatState
 
 	public var inst:FlxSound;
 	public var vocals:FlxSound;
-	public var opponentVocals:FlxSound;
+	public varopponentVocals:FlxSound;
 	public var splitVocals:Bool = false;
 
 	public var dad:Character = null;
@@ -190,7 +191,7 @@ class PlayState extends MusicBeatState
 	private var curSong:String = "";
 
 	public var gfSpeed:Int = 1;
-	public var health(default, set):Float = 0.2;
+	public var health(default, set):Float = 0.8;
 	public var combo:Int = 0;
 
 	public var healthBar:Bar;
@@ -207,8 +208,8 @@ class PlayState extends MusicBeatState
 	public static var chartingMode:Bool = false;
 
 	//Gameplay settings
-	public var healthGain:Float = 0.4;
-	public var healthLoss:Float = 0.4;
+	public var healthGain:Float = 0.6;
+	public var healthLoss:Float = 0.5;
 
 	public var guitarHeroSustains:Bool = false;
 	public var instakillOnMiss:Bool = false;
@@ -336,7 +337,7 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		FlxG.cameras.add(luaVpadCam, false);
-		grpNoteSplashes = new FlxTypedGroup<NoteSplash>(8);
+		grNoteSplashes = new FlxTypedGroup<NoteSplash>(8);
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -3055,9 +3056,23 @@ function onTimerCallBack(tim: FlxTimer){
 				if(releaseArray[i] || strumsBlocked[i] == true)
 					keyReleased(i);
 	}
+	
+	
 
 	function noteMiss(daNote:Note):Void { //You didn't hit the key and let it go offscreen, also used by Hurt Notes
 		//Dupe note remove
+		
+		if(songMisses < ClientPrefs.missLimit){
+		  
+		  
+		  
+		  songspeed = 0.2;
+		  
+		  lossSpeedTimer.start(1, (onComplete) -> {
+		    songspeed = 1;
+		  });
+		  
+		}
 		
 		
 		
@@ -3076,6 +3091,18 @@ function onTimerCallBack(tim: FlxTimer){
 	{
 		if(ClientPrefs.data.ghostTapping) return; //fuck it
 
+    if(!ClientPrefs.data.ghostTapping){
+      if(songMisses < ClientPrefs.missLimit){
+        songspeed = 0.2;
+        
+        lossSpeedTimer.start(1, (onComplete) -> {
+          songspeed = 1;
+        });
+      }else {
+        health = health - 0.6;
+      }
+    }
+
 		noteMissCommon(direction);
 		FlxG.sound.play(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
 		callOnScripts('noteMissPress', [direction]);
@@ -3084,7 +3111,17 @@ function onTimerCallBack(tim: FlxTimer){
 	function noteMissCommon(direction:Int, note:Note = null)
 	{
 	  
-	  
+if(!ClientPrefs.data.ghostTapping){
+      if(songMisses < ClientPrefs.missLimit){
+        songspeed = 0.2;
+        
+        lossSpeedTimer.start(1, (onComplete) -> {
+          songspeed = 1;
+        });
+      }else {
+        health = health - 0.6;
+      }
+    }
 	  
 		// score and data
 		var subtract:Float = 0.05;
@@ -3168,9 +3205,10 @@ function onTimerCallBack(tim: FlxTimer){
 	function opponentNoteHit(note:Note):Void
 	{
 	  
-	 
+	 if(health > 0.5)
 	  
 	 health = health - 0.04;
+	}
 	 
 	    
 	  
