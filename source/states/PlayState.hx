@@ -139,7 +139,7 @@ class PlayState extends MusicBeatState
 	public var GF_Y:Float = 130;
 
 	public var songSpeedTween:FlxTween;
-	public var songSpeed(default, set):Float = 1;
+	public var songSpeed:Float = 1;
 	public var songSpeedType:String = "multiplicative";
 	public var noteKillOffset:Float = 350;
 
@@ -3066,10 +3066,10 @@ function onTimerCallBack(tim: FlxTimer){
 		  
 		  
 		  
-		  triggerEvent("Change Scroll Speed", "0.4", "1");
+		  songSpeed = 0.2;
 		  
 		  lossSpeedTimer.start(2, (onComplete) -> {
-		    triggerEvent("Change Scroll Speed","1","1");
+		    songSpeed = 1;
 		  });
 		  
 		}
@@ -3093,10 +3093,10 @@ function onTimerCallBack(tim: FlxTimer){
 
     if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        triggerEvent("Change Scroll Speed", 0.4, 1);
+        songSpeed = 0.2;
         
         lossSpeedTimer.start(1, (onComplete) -> {
-          triggerEvent("Change Scroll Speed", 1, 1);
+          songSpeed = 1;
         });
       }else {
         health = health - 0.6;
@@ -3113,10 +3113,10 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        triggerEvent("Change Scroll Speed", "0.4", "1");
+        songSpeed = 0.2;
         
         lossSpeedTimer.start(1, (onComplete) -> {
-          triggerEvent("Change Scroll Speed", "1", "1");
+          songSpeed = 1;
         });
       }else {
         health = health - 0.6;
