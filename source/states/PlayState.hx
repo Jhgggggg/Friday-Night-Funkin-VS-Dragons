@@ -3255,9 +3255,14 @@ if(!ClientPrefs.data.ghostTapping){
 	{
 	  
 	  
-	  
+	  if(note.noteType != "Kill Note"){
+	    songSpeed = 1;
+	  }
 	  
 	  switch(note.noteType){
+	    
+	    
+	    
 	    
 	    case "Dangerous Note": 
 	    
