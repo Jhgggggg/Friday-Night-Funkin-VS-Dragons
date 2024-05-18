@@ -3147,10 +3147,8 @@ if(!ClientPrefs.data.ghostTapping){
 				// i think it would be fair if damage multiplied based on how long the sustain is -Tahir
 			}
 
-			if (note.missed){
-			  
+			if (note.missed)
 				return;
-			}
 		}
 		if (note != null && guitarHeroSustains && note.parent != null && note.isSustainNote) {
 			if (note.missed)
@@ -3420,8 +3418,12 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 		if (guitarHeroSustains && note.isSustainNote) gainHealth = false;
 		if (gainHealth) health += note.hitHealth * healthGain;
 
-		var result:Dynamic = callOnLuas(goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
-		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('goodNoteHit', [note]);
+		var result:Dynamic = callOnLuas('goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
+		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll){
+		  
+		callOnHScript('goodNoteHit', [note]);
+		
+		}
 
 		if(!note.isSustainNote) invalidateNote(note);
 	}
