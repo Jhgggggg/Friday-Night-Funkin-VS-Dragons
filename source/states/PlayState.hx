@@ -337,7 +337,7 @@ class PlayState extends MusicBeatState
 		FlxG.cameras.add(camHUD, false);
 		FlxG.cameras.add(camOther, false);
 		FlxG.cameras.add(luaVpadCam, false);
-		grNoteSplashes = new FlxTypedGroup<NoteSplash>(8);
+		grpNoteSplashes = new FlxTypedGroup<NoteSplash>(8);
 
 		persistentUpdate = true;
 		persistentDraw = true;
@@ -3066,10 +3066,10 @@ function onTimerCallBack(tim: FlxTimer){
 		  
 		  
 		  
-		  triggerEvent("Change Scroll Speed", 0.4, 1);
+		  triggerEvent("Change Scroll Speed", "0.4", "1");
 		  
 		  lossSpeedTimer.start(2, (onComplete) -> {
-		    triggerEvent("Change Scroll Speed",1, 1);
+		    triggerEvent("Change Scroll Speed","1","1");
 		  });
 		  
 		}
@@ -3113,10 +3113,10 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        triggerEvent("Change Scroll Speed", 0.4, 1);
+        triggerEvent("Change Scroll Speed", "0.4", "1");
         
         lossSpeedTimer.start(1, (onComplete) -> {
-          triggerEvent("Change Scroll Speed", 1, 1);
+          triggerEvent("Change Scroll Speed", "1", "1");
         });
       }else {
         health = health - 0.6;
@@ -3148,9 +3148,7 @@ if(!ClientPrefs.data.ghostTapping){
 			}
 
 			if (note.missed){
-			  var FantasmNote: Note = new Note(note.strumTime, note.noteData, note, note.isSustainNote, null);
-			  FantasmNote.multAlpha = 0.2;
-			  FantasmNote.ignoreNote = true;
+			  
 				return;
 			}
 		}
@@ -3422,7 +3420,7 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 		if (guitarHeroSustains && note.isSustainNote) gainHealth = false;
 		if (gainHealth) health += note.hitHealth * healthGain;
 
-		var result:Dynamic = callOnLuas('goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
+		var result:Dynamic = callOnLuas(goodNoteHit', [notes.members.indexOf(note), leData, leType, isSus]);
 		if(result != LuaUtils.Function_Stop && result != LuaUtils.Function_StopHScript && result != LuaUtils.Function_StopAll) callOnHScript('goodNoteHit', [note]);
 
 		if(!note.isSustainNote) invalidateNote(note);
