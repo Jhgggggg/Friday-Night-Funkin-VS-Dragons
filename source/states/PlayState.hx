@@ -3066,10 +3066,10 @@ function onTimerCallBack(tim: FlxTimer){
 		  
 		  
 		  
-		  songspeed = 0.2;
+		  triggerEvent("Change Scroll Speed", 0.4, 1);
 		  
-		  lossSpeedTimer.start(1, (onComplete) -> {
-		    songspeed = 1;
+		  lossSpeedTimer.start(2, (onComplete) -> {
+		    triggerEvent("Change Scroll Speed",1, 1);
 		  });
 		  
 		}
@@ -3093,10 +3093,10 @@ function onTimerCallBack(tim: FlxTimer){
 
     if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        songspeed = 0.2;
+        triggerEvent("Change Scroll Speed", 0.4, 1);
         
         lossSpeedTimer.start(1, (onComplete) -> {
-          songspeed = 1;
+          triggerEvent("Change Scroll Speed", 1, 1);
         });
       }else {
         health = health - 0.6;
@@ -3113,10 +3113,10 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        songspeed = 0.2;
+        triggerEvent("Change Scroll Speed", 0.4, 1)
         
         lossSpeedTimer.start(1, (onComplete) -> {
-          songspeed = 1;
+          triggerEvent("Change Scroll Speed", 1, 1);
         });
       }else {
         health = health - 0.6;
