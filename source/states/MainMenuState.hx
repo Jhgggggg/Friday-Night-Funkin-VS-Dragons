@@ -84,7 +84,7 @@ class MainMenuState extends MusicBeatState
 		{
 			var item:FlxSprite = createMenuItem(option, 0, (num * 140) + 90);
 			item.y += (4 - optionShit.length) * 70; // Offsets for when you have anything other than 4 items
-			item.x = 0;
+			item.x = 40;
 		}
 
 		if (leftOption != null)

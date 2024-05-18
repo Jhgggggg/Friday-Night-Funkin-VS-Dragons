@@ -3313,7 +3313,7 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 
 		if(note.hitCausesMiss) {
 			if(!note.noMissAnimation) {
-				switchnote.noteType) {
+				switch(note.noteType) {
 					case 'Hurt Note': //Hurt note
 						if(boyfriend.animOffsets.exists('hurt')) {
 							//boyfriend.playAnim('hurt', true);
