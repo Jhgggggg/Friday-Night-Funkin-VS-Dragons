@@ -166,7 +166,7 @@ class PlayState extends MusicBeatState
 
 	public var inst:FlxSound;
 	public var vocals:FlxSound;
-	public varopponentVocals:FlxSound;
+	public var opponentVocals:FlxSound;
 	public var splitVocals:Bool = false;
 
 	public var dad:Character = null;
@@ -3147,8 +3147,12 @@ if(!ClientPrefs.data.ghostTapping){
 				// i think it would be fair if damage multiplied based on how long the sustain is -Tahir
 			}
 
-			if (note.missed)
+			if (note.missed){
+			  var FantasmNote: Note = new Note(note.strumTime, note.noteData, note, note.isSustainNote, null);
+			  FantasmNote.multAlpha = 0.2;
+			  FantasmNote.ignoreNote = true;
 				return;
+			}
 		}
 		if (note != null && guitarHeroSustains && note.parent != null && note.isSustainNote) {
 			if (note.missed)
