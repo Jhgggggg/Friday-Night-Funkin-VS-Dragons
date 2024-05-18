@@ -3113,7 +3113,7 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        triggerEvent("Change Scroll Speed", 0.4, 1)
+        triggerEvent("Change Scroll Speed", 0.4, 1);
         
         lossSpeedTimer.start(1, (onComplete) -> {
           triggerEvent("Change Scroll Speed", 1, 1);
