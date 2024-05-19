@@ -3367,7 +3367,12 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 			}
 
 			noteMiss(note);
-			if(!note.SplashData.disabled && !note.isSustainNote) spawnNoteSplashOnNote(note);
+			/*if(!note.SplashData.disabled && !note.isSustainNote){
+			  // If note splash disabled
+			  
+			  // else
+			  // spawnNoteSplashOnNote(note)
+			}*/
 			if(!note.isSustainNote) invalidateNote(note);
 			return;
 		}
