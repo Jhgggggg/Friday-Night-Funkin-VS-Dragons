@@ -226,9 +226,9 @@ class MusicBeatState extends FlxUIState
 			nextState = FlxG.state;
 
 		
-		if(nextState == FlxG.state)
+		if(nextState == FlxG.state){
 			
-		else
+		}else
 			CustomFadeTransition.finishCallback = function() FlxG.switchState(nextState);
 	}
 
