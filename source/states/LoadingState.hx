@@ -87,13 +87,13 @@ class LoadingState extends MusicBeatState
 		}
 
 		#if PSYCH_WATERMARKS // PSYCH LOADING SCREEN
-		var bg = new FlxSprite().loadGraphic(Paths.image('mnuDesat'));
+		var bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.setGraphicSize(Std.int(FlxG.width));
 		bg.color = 0xFFD16FFF;
 		bg.updateHitbox();
 		add(bg);
 	
-		loadingText = new FlxText(520, 600, 400, Language.getPhrase('now_loading', 'Loading assets', ['...']), 32);
+		loadingText = new FlxText(520, 600, 400, Language.getPhrase('now_loading', 'Now Loading', ['...']), 32);
 		loadingText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, LEFT, OUTLINE_FAST, FlxColor.BLACK);
 		loadingText.borderSize = 2;
 		add(loadingText);
@@ -131,7 +131,7 @@ class LoadingState extends MusicBeatState
 		bar.scale.set(0, 15);
 		bar.updateHitbox();
 		add(bar);
-		barWidth = Std.int(bg.width - 2);
+		barWidth = Std.int(bg.width - 10);
 
 		persistentUpdate = true;
 		super.create();
@@ -170,11 +170,11 @@ class LoadingState extends MusicBeatState
 		switch(Math.floor(timePassed % 1 * 3))
 		{
 			case 0:
-				dots = 'Loading hx...';
+				dots = '.';
 			case 1:
-				dots = 'Loading lua...';
+				dots = '..';
 			case 2:
-				dots = 'Loading Hxs';
+				dots = '...';
 		}
 		loadingText.text = Language.getPhrase('now_loading', 'Now Loading{1}', [dots]);
 
@@ -359,8 +359,28 @@ class LoadingState extends MusicBeatState
 					json = Json.parse(Assets.getText(path));
 				#end
 
-				if (json != null)
-					prepare((!ClientPrefs.data.lowQuality || json.images_low) ? json.images : json.images_low, json.sounds, json.music);
+				if(json != null)
+				{
+					var imgs:Array<String> = [];
+					var snds:Array<String> = [];
+					var mscs:Array<String> = [];
+					for (asset in Reflect.fields(json))
+					{
+						var filters:Int = Reflect.field(json, asset);
+						var asset:String = asset.trim();
+
+						if(filters < 0 || StageData.validateVisibility(filters))
+						{
+							if(asset.startsWith('images/'))
+								imgs.push(asset.substr('images/'.length));
+							else if(asset.startsWith('sounds/'))
+								snds.push(asset.substr('sounds/'.length));
+							else if(asset.startsWith('music/'))
+								mscs.push(asset.substr('music/'.length));
+						}
+					}
+					prepare(imgs, snds, mscs);
+				}
 			}
 			catch(e:Dynamic) {}
 			completedThread();
@@ -376,7 +396,27 @@ class LoadingState extends MusicBeatState
 
 			var stageData:StageFile = StageData.getStageFile(song.stage);
 			if (stageData != null && stageData.preload != null)
-				prepare((!ClientPrefs.data.lowQuality || stageData.preload.images_low) ? stageData.preload.images : stageData.preload.images_low, stageData.preload.sounds, stageData.preload.music);
+			{
+				var imgs:Array<String> = [];
+				var snds:Array<String> = [];
+				var mscs:Array<String> = [];
+				for (asset in Reflect.fields(stageData.preload))
+				{
+					var filters:Int = Reflect.field(stageData.preload, asset);
+					var asset:String = asset.trim();
+
+					if(filters < 0 || StageData.validateVisibility(filters))
+					{
+						if(asset.startsWith('images/'))
+							imgs.push(asset.substr('images/'.length));
+						else if(asset.startsWith('sounds/'))
+							snds.push(asset.substr('sounds/'.length));
+						else if(asset.startsWith('music/'))
+							mscs.push(asset.substr('music/'.length));
+					}
+				}
+				prepare(imgs, snds, mscs);
+			}
 
 			songsToPrepare.push('$folder/Inst');
 
