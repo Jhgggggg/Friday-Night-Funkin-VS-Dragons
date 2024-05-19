@@ -63,7 +63,7 @@ class OptionsState extends MusicBeatState
 		
 		bgList = ['menuBGBlue','menuBG','menuDesat','menuBGMagenta'];
 
-		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[0]));
+		var bg:FlxSprite = new FlxSprite().loadGraphic(Paths.image(bgList[3]));
 		bg.antialiasing = ClientPrefs.data.antialiasing;
 		bg.color = 0xFFea71fd;
 		bg.updateHitbox();
@@ -85,7 +85,7 @@ class OptionsState extends MusicBeatState
 		{
 			var optionText:Alphabet = new Alphabet(0, 0, Language.getPhrase('options_$option', option), true);
 			optionText.x = 30;
-			optionText.y += (92 * (num - (options.length / 2))) + 45;
+			optionText.y += (160 * (num - (options.length / 2))) + 45;
 			grpOptions.add(optionText);
 		}
 
