@@ -83,6 +83,8 @@ class PlayState extends MusicBeatState
 {
 	public static var STRUM_X = 48.5;
 	public static var STRUM_X_MIDDLESCROLL = -278;
+	
+	public var defaultSpeedSong: Float;
 
   public var missLimit: Int = 5;
   public var healthBarTween: FlxTween;
@@ -292,6 +294,7 @@ class PlayState extends MusicBeatState
 	{
 		//trace('Playback Rate: ' + playbackRate);
 		
+		defaultSpeedSong = songSpeed;
 		
 		chancesToDeathWhenPressNote = [true, true, true];
 		
@@ -3066,7 +3069,7 @@ function onTimerCallBack(tim: FlxTimer){
 		  
 		  
 		  
-		  songSpeed = 0.2;
+		  
 		  
 		  
 		  
@@ -3091,11 +3094,11 @@ function onTimerCallBack(tim: FlxTimer){
 
     if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        songSpeed = 0.2;
+        
         
         
       }else {
-        health = health - 0.6;
+        
       }
     }
 
@@ -3109,10 +3112,10 @@ function onTimerCallBack(tim: FlxTimer){
 	  
 if(!ClientPrefs.data.ghostTapping){
       if(songMisses < ClientPrefs.missLimit){
-        songSpeed = 0.2;
+        
         
       }else {
-        health = health - 0.6;
+        
       }
     }
 	  
@@ -3198,10 +3201,12 @@ if(!ClientPrefs.data.ghostTapping){
 	function opponentNoteHit(note:Note):Void
 	{
 	  
-	 if(health > 0.5) {
+	  switch(curSong){
+	    case "unlucky-bitch": 
+	    if(health > 0.2) health = health - 0.2;
+	  }
 	  
-	 health = health - 0.04;
-	}
+	
 	 
 	    
 	  
@@ -3256,7 +3261,7 @@ if(!ClientPrefs.data.ghostTapping){
 	  
 	  
 	  if(note.noteType != "Kill Note"){
-	    songSpeed = 1;
+	    
 	  }
 	  
 	  switch(note.noteType){
@@ -3362,7 +3367,7 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 			}
 
 			noteMiss(note);
-			if(!note.noteSplashData.disabled && !note.isSustainNote) spawnNoteSplashOnNote(note);
+			if(!note.SplashData.disabled && !note.isSustainNote) spawnNoteSplashOnNote(note);
 			if(!note.isSustainNote) invalidateNote(note);
 			return;
 		}
@@ -3491,34 +3496,16 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 		
 		
 		
-		switch(curStage){
+		
+		    
+		    
+		    
 		  
-		  case 'cgstage1' | 'cgstage2' | 'cgstageAll' | 'cgstage3':
-		  {
-		    
-		    if(curStep == 30){
-		      camHUD.angle += 40;
-		      healthGainActived = true;
-		    }
-		    
-		    if(curStep == 60){
-		      camHUD.angle -= 40;
-		      healthGainActived = false;
-		    }
-		    
-		    var missIndicatorSprite: FlxSprite = new FlxSprite(healthBar.x, healthBar.y - 20);
-		    missIndicatorSprite.loadGraphic(Paths.image("indicator"));
-		    missIndicatorSprite.scrollFactor.set(0.9, 0.9);
-		    missIndicatorSprite.antialiasing = true;
-		    add(missIndicatorSprite);
-		    
-		    
-		  }
 		  
 		    
 		  
 		
-		}
+		
 
 		if(curStep == lastStepHit) {
 			return;
@@ -3533,8 +3520,18 @@ setHealthColorPlayer(boyfriend.healthColorArray[0], boyfriend.healthColorArray[1
 
 	override function beatHit()
 	{
+	  
+	  switch(curSong){
+	    
+	  }
+	  
+	  
 		if(lastBeatHit >= curBeat) {
 			//trace('BEAT HIT: ' + curBeat + ', LAST HIT: ' + lastBeatHit);
+			
+			
+			
+			
 			return;
 		}
 

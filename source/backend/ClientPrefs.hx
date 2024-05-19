@@ -21,7 +21,7 @@ import states.TitleState;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
 	public var showFPS:Bool = true;
-	public var flashing:Bool = true;
+	public var flashing:Bool = false;
 	public var autoPause:Bool = true;
 	public var antialiasing:Bool = true;
 	public var noteSkin:String = 'Default';
@@ -30,7 +30,7 @@ import states.TitleState;
 	public var lowQuality:Bool = false;
 	public var shaders:Bool = true;
 	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
-	public var framerate:Int = 120;
+	public var framerate:Int = 240;
 	public var gameOverVibration:Bool = false;
 	public var camZooms:Bool = true;
 	public var hideHud:Bool = false;
@@ -47,7 +47,7 @@ import states.TitleState;
 		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 
 	public var ghostTapping:Bool = false;
-	public var timeBarType:String = 'Disabled';
+	public var timeBarType:String = 'Song Name';
 	public var scoreZoom:Bool = true;
 	public var noReset:Bool = true;
 	public var healthBarAlpha:Float = 1;
